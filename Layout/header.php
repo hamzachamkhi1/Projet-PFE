@@ -5,7 +5,7 @@
             <div class="logo-holder">
                 <a href="index.php"><img src="images/logo.png" alt=""></a>
             </div>
-            <div class="show-reg-form modal-open"><i class="fas fa-sign-in"></i>S'identifier</div>
+            <div class="show-reg-form modal-open" id="login"><i class="fas fa-sign-in"></i>S'identifier</div>
             <div class="lang-wrap">
                 <div class="show-lang"><img src="images/lan/2.png" alt=""> <span>Fr</span></div>
 

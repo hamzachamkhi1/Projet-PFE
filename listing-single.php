@@ -1,3 +1,7 @@
+<?php 
+if(session_status() != 2)
+    session_start();
+require "login.php"?>
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -20,9 +24,7 @@
 
 <body>
     <?php
-
-    session_start();
-    include 'connection.php';
+    require_once 'connection.php';
     $hotelid = $_GET["id"];
     $noOfRooms = $_SESSION['rooms'];
     $date = $_SESSION['main-input-search'];
@@ -32,6 +34,7 @@
     $numberOfNights = $date2->diff($date1)->format("%a");
     $r = $noOfRooms - 1;
     $sql = "SELECT * FROM hotel WHERE id = $hotelid";
+    echo $sql;
     $result = $conn->query($sql);
     $data = $result->fetch_assoc();
     $services = json_decode($data['services'], true);
@@ -661,7 +664,14 @@
                                                             </tr>
                                                         </tfoot>
                                                     </table>
-                                                   <a href="booking-single.php"><button type="submit" class="btn ml-auto btn_confirmation btn-lg" id="button_envoie">Je réserve <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+                                                    <form action = <?php echo ((isset($_SESSION['Status']) && $_SESSION['Status'] == "Connected") ? "booking-single.php" : "listing-single.php")?>>
+                                                        <button name="reserve" type="submit" class="btn ml-auto btn_confirmation btn-lg" id="button_envoie">
+                                                            Je réserve 
+                                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        </button>
+                                                        <input type="hidden" name ="id" value = <?php echo '"'.$_GET["id"].'"'?>/>
+                                                    </form>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -1105,6 +1115,10 @@
                 x.style.display = "block";
             }
         }
+        <?php if(isset($_GET["reserve"]) && (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected")){
+                echo 'setTimeout(()=>{document.getElementById("login").click();},1000);';
+            }
+        ?>
     </script>
 </body>
 

@@ -1,10 +1,12 @@
 <?php
 if(isset($_POST['logout'])){
     $_SESSION['Status'] =  'Disconnected';
-    if($_SESSION['username'])
+    if(isset($_SESSION['username']))
         unset($_SESSION['username']);
-    if($_SESSION['password'])
+    if(isset($_SESSION['password']))
         unset($_SESSION['password']);
+    if(isset($_GET["reserve"]))
+        unset($_GET["reserve"]);
 }
 if(!isset($_SESSION['Status'])){
     $_SESSION['Status'] =  'Disconnected';
