@@ -1,37 +1,4 @@
-<?php
-    require './connection.php';
-    if (isset($_POST['login'])) {
-        print_r("login");
-        $username = $_POST['Username'];
-        print_r($username);
-        $password = $_POST['Password'];
-    if(isset($_POST['username']) && isset($_POST['Password'])){
-    
-        $sqlquery="SELECT UserID FROM users WHERE Username='$username' and Password='$password'";
-        
-        $result=mysqli_query($conn,$sqlquery);
-        
-        $row=mysqli_fetch_assoc($result);
-        $count=mysqli_num_rows($result);
-        if($count>0){
-    
-            //session_register("username");
-            session_id($username);
-            session_start();
-        
-            $_SESSION['name']=$username;
-        
-            
-            }
-            else{
-                header("location:dashboard-review.php");
-                // echo "<h4 class='text-center bg-danger' style='font-weight:bold';>Invalid username and password</h4>";
-            }
-            
-            }
-            
-            }
-     ?>
+
 <div class="main-register-wrap modal">
             <div class="reg-overlay"></div>
             <div class="main-register-holder">
