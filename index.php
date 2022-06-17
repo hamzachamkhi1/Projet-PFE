@@ -1,3 +1,7 @@
+<?php
+session_start();
+require "login.php";
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -21,7 +25,7 @@
 
 <body>
     <?php
-    include 'connection.php';
+    require_once 'connection.php';
     $sql = "SELECT * FROM hotel limit 10";
     $rowcount = mysqli_num_rows(mysqli_query($conn, $sql));
     $result = $conn->query($sql);
@@ -86,7 +90,6 @@
 
 
                                                         <?php
-                                                        include 'connection.php';
                                                         $records = mysqli_query($conn, "select id,Nom from cites");
                                                         while ($row = mysqli_fetch_array($records)) {
                                                             echo "<option value= " . $row['Nom'], ">" . $row['Nom'] . "</option>";
@@ -538,8 +541,9 @@
                             <div class="col-md-4">
                                 <div class="colomn-text fl-wrap pad-top-column-text_small">
                                     <div class="colomn-text-title">
-                                        <h3>Hôtels les plus populaires</h3>
-                                        <a href="listing.php" class="btn  color2-bg float-btn">Voir tous les hôtels<i class="fas fa-caret-right"></i></a>
+                                        <h3>Most Popular Hotels</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
+                                        <a href="listing.php" class="btn  color2-bg float-btn">View All Hotels<i class="fas fa-caret-right"></i></a>
                                     </div>
                                 </div>
                             </div>

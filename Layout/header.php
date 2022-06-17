@@ -1,4 +1,3 @@
-
 <header class="main-header">
     <!-- header-top-->
     <div class="header-top fl-wrap">
@@ -12,7 +11,7 @@
 
             </div>
             <div class="currency-wrap">
-                <div class="show-currency-tooltip"> TND</div>
+                <div class="show-currency-tooltip">TND</div>
             </div>
         </div>
     </div>
@@ -22,19 +21,26 @@
         <div class="container">
             <div class="header-user-menu">
                 <div class="header-user-name">
-                    <span><img src="images/avatar/4.jpg" alt=""></span>
-                <?php if (isset ($_SESSION['name'])){
-                    echo $_SESSION['name'];
+                <?php if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
+                    echo '<span><img src="images/avatar/4.jpg" alt=""></span>' . $_SESSION['username'];
                 } 
                  ?>
                 </div>
-                <ul>
-                    <li><a href="dashboard-myprofile.php"> Editer le profil</a></li>
-                    <li><a href="dashboard-add-listing.php">Ajouter une annonce</a></li>
-                    <li><a href="dashboard-bookings.php"> Réservations </a></li>
-                   
-                    <li><a href="#">Se déconnecter</a></li>
-                </ul>
+                <?php
+                if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
+                    echo '<ul>'
+                    .'<li><a href="dashboard-myprofile.php"> Editer le profil</a></li>'
+                    .'<li><a href="dashboard-add-listing.php">Ajouter une annonce</a></li>'
+                    .'<li><a href="dashboard-bookings.php"> Réservations </a></li>'
+                    .'<li>'
+                    .'    <form method="POST">'
+                    .'        <button type="submit" name="logout" class="log-submit-btn color-bg"><span>Se déconnecter</span></button>'
+                    .'    </form>'
+                    .'</li>'
+                    .'</ul>';
+                }
+                ?>
+                
             </div>
             <div class="home-btn"><a href="index.php"><i class="fas fa-home"></i></a></div>
             <!-- nav-button-wrap-->
