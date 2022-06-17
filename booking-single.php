@@ -1,3 +1,13 @@
+<?php 
+if(session_status() != 2)
+    session_start();
+require "login.php";
+
+if(!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected"){
+    header("Location: http://localhost/Projet-Hamza/index.php");
+    die();
+}
+?>
 
 <!DOCTYPE HTML>
 <html lang="en">

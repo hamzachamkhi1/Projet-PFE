@@ -15,7 +15,7 @@
                             <div id="tab-1" class="tab-content">
                                 <h3>S'identifier <span>Easy<strong>Book</strong></span></h3>
                                 <div class="custom-form">
-                                    <form method="post" action="index.php" name="login">
+                                    <form method="post" name="login">
                                         <label>nom d'utilisateur <span>*</span> </label>
                                         <input name="Username" type="text" value="">
                                         <label>Mot de passe <span>*</span> </label>
