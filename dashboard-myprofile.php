@@ -1,3 +1,6 @@
+<?php 
+
+?>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -48,28 +51,10 @@
                                         </div>
                                         <div class="dasboard-sidebar-item fl-wrap">
                                             <h3>
-                                                <span>Welcome </span>
+                                                <span>Bienvenue</span>
                                                 Jessie Manrty
                                             </h3>
                                         </div>
-                                        <a href="dashboard-add-listing.html" class="ed-btn">Add Hotel</a>                                        
-                                        <div class="user-stats fl-wrap">
-                                            <ul>
-                                                <li>
-                                                    Listings	
-                                                    <span>4</span>
-                                                </li>
-                                                <li>
-                                                    Bookings
-                                                    <span>32</span>	
-                                                </li>
-                                                <li>
-                                                    Reviews	
-                                                    <span>9</span>	
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="log-out-btn color-bg">Log Out <i class="fas fa-sign-out"></i></a>
                                     </div>
                                 </div>
                                 <!--dasboard-sidebar end--> 

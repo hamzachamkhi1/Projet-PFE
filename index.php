@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "registerform.php";
 require "login.php";
 ?>
 <!DOCTYPE HTML>
@@ -8,7 +9,7 @@ require "login.php";
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -74,9 +75,9 @@ require "login.php";
                         <div class="container">
                             <div class="home-intro">
                                 <div class="section-title-separator"><span></span></div>
-                                <h2>EasyBook Hotel Booking System</h2>
+                                <h2>ChamkhiBooking </h2>
                                 <span class="section-separator"></span>
-                                <h3>Let's start exploring the world together with EasyBook</h3>
+                                <h3>Commençons à explorer le monde avec ChamkhiBooking</h3>
                             </div>
                             <div class="main-search-input-wrap">
                                 <form action="listing1.php" method="GET" id="">
@@ -541,9 +542,9 @@ require "login.php";
                             <div class="col-md-4">
                                 <div class="colomn-text fl-wrap pad-top-column-text_small">
                                     <div class="colomn-text-title">
-                                        <h3>Most Popular Hotels</h3>
+                                        <h3>Hôtels les plus populaires</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        <a href="listing.php" class="btn  color2-bg float-btn">View All Hotels<i class="fas fa-caret-right"></i></a>
+                                        <a href="listing.php" class="btn  color2-bg float-btn">Voir tous les hôtels<i class="fas fa-caret-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -557,8 +558,6 @@ require "login.php";
                                             <div class="hotel-card fl-wrap title-sin_item">
                                                 <div class="geodir-category-img card-post">
                                                     <a href="listing-single.php"><img src="images/gal/8.jpg" alt=""></a>
-                                                    <div class="listing-counter">Awg/Night <strong>$85</strong></div>
-                                                    <div class="sale-window">Sale 20%</div>
                                                     <div class="geodir-category-opt">
                                                         <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
                                                         <h4 class="title-sin_map"><a href="listing-single.php">Moonlight Hotel</a></h4>
@@ -628,7 +627,7 @@ require "login.php";
                     <div class="container">
                         <div class="section-title">
                             <div class="section-title-separator"><span></span></div>
-                            <h2>Why Choose Us</h2>
+                            <h2>Pourquoi nous choisir</h2>
                             <span class="section-separator"></span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
                         </div>

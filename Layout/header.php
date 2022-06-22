@@ -5,7 +5,14 @@
             <div class="logo-holder">
                 <a href="index.php"><img src="images/logo.png" alt=""></a>
             </div>
-            <div class="show-reg-form modal-open" id="login"><i class="fas fa-sign-in"></i>S'identifier</div>
+            <?php if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
+              echo '<form method="POST">'
+                .'<div class="show-reg-form" id="logout"><button type="submit" name="logout"><span>Se déconnecter</span></button></div>'
+           .'</form>';
+            }else{
+                echo'<div class="show-reg-form modal-open" id="login"><i class="fas fa-sign-in"></i>Sidentifier</div>';
+            }
+            ?>
             <div class="lang-wrap">
                 <div class="show-lang"><img src="images/lan/2.png" alt=""> <span>Fr</span></div>
 
@@ -19,29 +26,18 @@
     <!-- header-inner-->
     <div class="header-inner fl-wrap">
         <div class="container">
-            <div class="header-user-menu">
-                <div class="header-user-name">
-                <?php if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
-                    echo '<span><img src="images/avatar/4.jpg" alt=""></span>' . $_SESSION['username'];
-                } 
-                 ?>
-                </div>
-                <?php
-                if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
-                    echo '<ul>'
+        <?php if (isset ($_SESSION['Status']) && $_SESSION['Status'] == "Connected"){
+           echo '<div class="header-user-menu">'
+                .'<div class="header-user-name">'
+               .' <span><img src="images/avatar/4.jpg" alt=""></span>'. $_SESSION['username']
+                .'</div>'
+                    .'<ul>'
                     .'<li><a href="dashboard-myprofile.php"> Editer le profil</a></li>'
                     .'<li><a href="dashboard-add-listing.php">Ajouter une annonce</a></li>'
                     .'<li><a href="dashboard-bookings.php"> Réservations </a></li>'
-                    .'<li>'
-                    .'    <form method="POST">'
-                    .'        <button type="submit" name="logout" class="log-submit-btn color-bg"><span>Se déconnecter</span></button>'
-                    .'    </form>'
-                    .'</li>'
-                    .'</ul>';
-                }
-                ?>
-                
-            </div>
+                    .'</ul>'    
+            .'</div>';
+        }?>
             <div class="home-btn"><a href="index.php"><i class="fas fa-home"></i></a></div>
             <!-- nav-button-wrap-->
             <div class="nav-button-wrap color-bg">

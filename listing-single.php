@@ -1,14 +1,14 @@
-<?php 
-if(session_status() != 2)
+<?php
+if (session_status() != 2)
     session_start();
-require "login.php"?>
+require "login.php" ?>
 <!DOCTYPE HTML>
 <html lang="en">
 
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -34,7 +34,6 @@ require "login.php"?>
     $numberOfNights = $date2->diff($date1)->format("%a");
     $r = $noOfRooms - 1;
     $sql = "SELECT * FROM hotel WHERE id = $hotelid";
-    echo $sql;
     $result = $conn->query($sql);
     $data = $result->fetch_assoc();
     $services = json_decode($data['services'], true);
@@ -422,21 +421,22 @@ require "login.php"?>
                                             <h3>Chambres disponibles</h3>
                                         </div>
                                         <!--   rooms-container -->
-                                        <div class="rooms-container fl-wrap">
-                                            <!--  rooms-item -->
-                                            <?php
-                                            for ($i = 0; $i < $noOfRooms; $i++) {
-                                                $idroom = $arr[$i]['id'];
-                                                $sqlimg1 = "SELECT * FROM images_room where id_room=$idroom limit 1";
-                                                $resultimg1 = $conn->query($sqlimg1);
-                                                $sqlimg2 = "SELECT * FROM images_room where id_room=$idroom";
-                                                $resultimg2 = mysqli_query($conn, $sqlimg2);
-                                                $num_rows = mysqli_num_rows($resultimg2);
-                                                while ($rowimg1 = $resultimg1->fetch_assoc()) {
+                                        <?php
+                                        for ($i = 0; $i < $noOfRooms; $i++) {
+                                            $idroom = $arr[$i]['id'];
+                                            $sqlimg1 = "SELECT * FROM images_room where id_room=$idroom limit 1";
+                                            $resultimg1 = $conn->query($sqlimg1);
+                                            $sqlimg2 = "SELECT * FROM images_room where id_room=$idroom";
+                                            $resultimg2 = mysqli_query($conn, $sqlimg2);
+                                            $num_rows = mysqli_num_rows($resultimg2);
+                                            while ($rowimg1 = $resultimg1->fetch_assoc()) {
 
 
 
-                                            ?>
+                                        ?>
+                                                <div class="rooms-container fl-wrap">
+                                                    <!--  rooms-item -->
+
                                                     <div class="rooms-item fl-wrap">
                                                         <div class="rooms-media">
                                                             <img src='<?php echo "./admin/uploads/" . $rowimg1["file_name"]; ?>' alt="">
@@ -475,11 +475,12 @@ require "login.php"?>
 
                                                         </div>
                                                     </div>
-                                                <?php  } ?>
-                                                <!--  rooms-item end -->
-                                        </div>
-                                        <button class="btn color-bg " id="tarif" onclick="Tarif()">Tarifs<i class="fas fa-caret-right"></i></button>
-                                        <!--   rooms-container end -->
+
+                                                    <!--  rooms-item end -->
+                                                </div>
+                                            <?php  } ?>
+                                            <button class="btn color-bg " id="tarif" onclick="Tarif()">Tarifs<i class="fas fa-caret-right"></i></button>
+                                            <!--   rooms-container end -->
                                     </div>
                                     <!-- list-single-main-item end -->
                                     <!-- list-single-main-item -->
@@ -499,6 +500,14 @@ require "login.php"?>
                                                             </tr>
                                                         </thead>
                                                         <?php
+                                                        $nbenf = 0;
+                                                        $nbadulte = 0;
+                                                        for ($i = 0; $i < $noOfRooms; $i++) {
+                                                            $nbenf = $nbenf + $totchambre[$i][1];
+                                                            $nbadulte = $nbadulte + $totchambre[$i][0];
+                                                        }
+                                                        $_SESSION['nbenf'] = $nbenf;
+                                                        $_SESSION['nbadulte'] = $nbadulte;
                                                         for ($i = 0; $i < $noOfRooms; $i++) {
 
 
@@ -614,7 +623,6 @@ require "login.php"?>
                                                                             document.getElementById('prixtotal_' + <?php echo $i; ?>).innerHTML = "" + prixtotal + "<sup>DT</sup>";
                                                                             document.getElementById('prixtotal_' + <?php echo $i; ?>).value = prixtotal;
                                                                             document.getElementById('prixtotal_nuit_' + <?php echo $i; ?>).innerHTML = "" + prixtotal_nuit + "<sup>DT</sup>";
-                                                                            console.log(totalsejour);
                                                                         </script>
                                                                     </td>
 
@@ -630,48 +638,46 @@ require "login.php"?>
                                                             <tr>
                                                                 <td colspan="3"></td>
                                                                 <td class="TotalSejour">
-                                                                    <div class="text-total-hotel">Total Séjour</div><span class="price" id="total"><sup>DT</sup></span>
-                                                                    <script>
-                                                                        if (document.getElementById('prixtotal_1') == null && document.getElementById('prixtotal_2') == null) {
-                                                                            var prix1 = document.getElementById("prixtotal_0").value;
-
-
-                                                                            var prix = parseFloat(prix1);
-                                                                            console.log(prix)
-                                                                            document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-
-
-                                                                        }
-
-                                                                        if (document.getElementById('prixtotal_1') != null && document.getElementById('prixtotal_2') != null) {
-                                                                            var prix1 = document.getElementById("prixtotal_0").value;
-
-                                                                            var prix2 = document.getElementById("prixtotal_1").value;
-                                                                            var prix3 = document.getElementById("prixtotal_2").value;
-                                                                            console.log("t3adina men hna ")
-                                                                            var prix = parseFloat(prix1) + parseFloat(prix2) + parseFloat(prix3);
-                                                                        }
-                                                                        if (document.getElementById('prixtotal_2') == null) {
-                                                                            var prix1 = document.getElementById("prixtotal_0").value;
-
-                                                                            var prix2 = document.getElementById("prixtotal_1").value;
-                                                                            var prix = parseFloat(prix1) + parseFloat(prix2);
-                                                                        }
-                                                                        console.log(prix);
-                                                                        document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-                                                                    </script>
+                                                                    <div class="text-total-hotel" name="total">Total Séjour</div><span class="price" id="total"><sup>DT</sup></span>
                                                                 </td>
+                                                                <script>
+                                                                    if (document.getElementById('prixtotal_1') == null && document.getElementById('prixtotal_2') == null) {
+                                                                        var prix1 = document.getElementById("prixtotal_0").value;
+
+
+                                                                        var prix = parseFloat(prix1);
+                                                                        console.log(prix)
+                                                                        document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
+
+
+                                                                    }
+
+                                                                    if (document.getElementById('prixtotal_1') != null && document.getElementById('prixtotal_2') != null) {
+                                                                        var prix1 = document.getElementById("prixtotal_0").value;
+
+                                                                        var prix2 = document.getElementById("prixtotal_1").value;
+                                                                        var prix3 = document.getElementById("prixtotal_2").value;
+                                                                        var prix = parseFloat(prix1) + parseFloat(prix2) + parseFloat(prix3);
+                                                                    }
+                                                                    if (document.getElementById('prixtotal_2') == null) {
+                                                                        var prix1 = document.getElementById("prixtotal_0").value;
+
+                                                                        var prix2 = document.getElementById("prixtotal_1").value;
+                                                                        var prix = parseFloat(prix1) + parseFloat(prix2);
+                                                                    }
+                                                                    document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
+                                                                </script>
                                                             </tr>
                                                         </tfoot>
                                                     </table>
-                                                    <form action = <?php echo ((isset($_SESSION['Status']) && $_SESSION['Status'] == "Connected") ? "booking-single.php" : "listing-single.php")?>>
+                                                    <form action=<?php echo ((isset($_SESSION['Status']) && $_SESSION['Status'] == "Connected") ? "booking-single.php" : "listing-single.php") ?>>
                                                         <button name="reserve" type="submit" class="btn ml-auto btn_confirmation btn-lg" id="button_envoie">
-                                                            Je réserve 
+                                                            Je réserve
                                                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         </button>
-                                                        <input type="hidden" name ="id" value = <?php echo '"'.$_GET["id"].'"'?>/>
+                                                        <input type="hidden" name="id" value=<?php echo '"' . $_GET["id"] . '"' ?> />
+                                                        <div class="text-total-hotel" name="total" hidden></div><span class="price" id="total2"></span>
                                                     </form>
-                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -819,7 +825,7 @@ require "login.php"?>
                                                         </div>
                                                         <div class="review-total">
                                                             <span><input type="text" name="rg_total" value="" data-form="AVG({rgcl})" value="0"></span>
-                                                            <strong>Your Score</strong>
+                                                            <strong>Ton score</strong>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -1115,9 +1121,9 @@ require "login.php"?>
                 x.style.display = "block";
             }
         }
-        <?php if(isset($_GET["reserve"]) && (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected")){
-                echo 'setTimeout(()=>{document.getElementById("login").click();},1000);';
-            }
+        <?php if (isset($_GET["reserve"]) && (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected")) {
+            echo 'setTimeout(()=>{document.getElementById("login").click();},1000);';
+        }
         ?>
     </script>
 </body>

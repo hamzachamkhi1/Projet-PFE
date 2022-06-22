@@ -15,7 +15,7 @@ if (isset($_POST['login']) && $_SESSION['Status'] == "Disconnected" && isset($_P
     require_once './connection.php';
     $username = $_POST['Username'];
     $password = $_POST['Password'];
-    $sqlquery="SELECT UserID FROM users WHERE Username='$username' and Password='$password'";
+    $sqlquery="SELECT UserID FROM users WHERE Username='$username' and Pass='$password'";
         
     $result=mysqli_query($conn,$sqlquery);
         

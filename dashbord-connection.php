@@ -13,13 +13,13 @@
                         <div class="tab">
                             <!--tab -->
                             <div id="tab-1" class="tab-content">
-                                <h3>S'identifier <span>Easy<strong>Book</strong></span></h3>
+                                <h3>S'identifier <span>Chamkhi<strong>Booking</strong></span></h3>
                                 <div class="custom-form">
                                     <form method="post" name="login">
                                         <label>nom d'utilisateur <span>*</span> </label>
-                                        <input name="Username" type="text" value="">
+                                        <input name="Username" type="text" value="" required>
                                         <label>Mot de passe <span>*</span> </label>
-                                        <input name="Password" type="password" value="">
+                                        <input name="Password" type="password" autocomplete="on" value="" required>
                                         <button type="submit" name="login" class="log-submit-btn color-bg"><span>Connexion</span></button>
                                         <div class="clearfix"></div>
                                         <div class="filter-tags">
@@ -36,16 +36,22 @@
                             <!--tab -->
                             <div class="tab">
                                 <div id="tab-2" class="tab-content">
-                                    <h3>S'inscrire <span>Easy<strong>Book</strong></span></h3>
+                                    <h3>S'inscrire <span>Chamkhi<strong>Booking</strong></span></h3>
                                     <div class="custom-form">
                                         <form method="post" name="registerform" class="main-register-form" id="main-register-form2">
-                                            <label>Nom et prénom <span>*</span> </label>
-                                            <input name="name" type="text" value="">
+                                            <label>Nom <span>*</span> </label>
+                                            <input name="firstname" type="text" value="" required>
+                                            <label>prénom <span>*</span> </label>
+                                            <input name="name" type="text" value="" required>
+                                            <label>Nom d'utilisateur<span>*</span> </label>
+                                            <input name="username" type="text" value="" required>
                                             <label>Adresse e-mail <span>*</span></label>
-                                            <input name="email" type="text" onClick="this.select()" value="">
+                                            <input name="email" type="text" value="" required>
+                                            <label>Numéro de téléphone<span>*</span></label>
+                                            <input name="phone" type="text" value="" required>
                                             <label>Mot de passe <span>*</span></label>
-                                            <input name="password" type="password" onClick="this.select()" value="">
-                                            <button type="submit" class="log-submit-btn color-bg"><span>S'inscrire</span></button>
+                                            <input name="password" type="password" autocomplete="on" value="" required>
+                                            <button type="submit" name="register"class="log-submit-btn color-bg"><span>S'inscrire</span></button>
                                         </form>
                                     </div>
                                 </div>
