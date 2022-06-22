@@ -20,7 +20,7 @@
         function deleteid(id_de) {
             var id = <?php echo $_GET['hotel_id']; ?>;
             if (confirm('Sure To Remove This Image ?')) {
-                window.location.href = 'http://localhost/Projet%20PFE/admin/hotelupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
+                window.location.href = 'hotelupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
             }
         }
     </script>

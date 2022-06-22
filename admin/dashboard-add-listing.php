@@ -200,7 +200,7 @@
             echo "hotel exist";
         }
 
-        header("Location: http://localhost/Projet%20PFE/admin/dashboard-listing-table.php?");
+        header("Location: dashboard-listing-table.php?");
     }
 
     ?>

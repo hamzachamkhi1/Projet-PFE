@@ -132,9 +132,9 @@
                                                         <h4><a href="listing-single.php?hotel_id=<?php echo $id_ho; ?>"><?php echo $row["hoteltname"] ?></a></h4>
                                                         <span class="dashboard-listing-table-address"><i class="fas fa-map-marker"></i><a href="#"><?php echo $row["adresse"] ?></a></span>
                                                         <ul class="dashboard-listing-table-opt  fl-wrap">
-                                                            <li><a href="http://localhost/Projet%20PFE/admin/hotelupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier l'hôtel <i class="fal fa-edit"></i></a></li>
-                                                            <li><a href="http://localhost/Projet%20PFE/admin/roomupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier les chambres <i class="fal fa-edit"></i></a></li>
-                                                            <li><a href="http://localhost/Projet%20PFE/admin/periodeupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier la période<i class="fal fa-edit"></i></a></li>
+                                                            <li><a href="hotelupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier l'hôtel <i class="fal fa-edit"></i></a></li>
+                                                            <li><a href="roomupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier les chambres <i class="fal fa-edit"></i></a></li>
+                                                            <li><a href="periodeupdate.php?hotel_id=<?php echo $id_ho; ?>">Modifier la période<i class="fal fa-edit"></i></a></li>
                                                             <li><a href="javascript:delete_id(<?php echo  $id_ho; ?>)" class="del-btn"style="  margin-top: 10px;">Supprimer l'hôtel<i class="fal fa-trash-alt"></i></a></li>
                                                         </ul>
                                                     </div>

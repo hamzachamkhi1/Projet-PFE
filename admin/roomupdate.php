@@ -271,7 +271,7 @@
                 </div>
         </section>
         <section class="middle-padding">
-            <form action="http://localhost/Projet%20PFE/admin/roomupdate.php?hotel_id=<?php echo $id ?>" enctype="multipart/form-data" method="POST">
+            <form action="roomupdate.php?hotel_id=<?php echo $id ?>" enctype="multipart/form-data" method="POST">
                 <div class="container">
 
                     <div class="box-widget-item-header mat-top">

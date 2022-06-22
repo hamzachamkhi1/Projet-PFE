@@ -20,7 +20,7 @@
         function delete_id(id_de) {
             var id = <?php echo $_GET['hotel_id']; ?>;
             if (confirm('Sure To Remove This Periode ?')) {
-                window.location.href = 'http://localhost/Projet%20PFE/admin/periodeupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
+                window.location.href = 'periodeupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
             }
         }
     </script>
