@@ -7,18 +7,43 @@ $username = $_SESSION['username'];
 $sql = "SELECT * FROM users WHERE Username = '$username'";
 $result = $conn->query($sql);
 $data = $result->fetch_assoc();
-$userid= $data['UserID'] ;
+$image = "./admin/uploads/" . $data['Image'];
+$userid = $data['UserID'];
 if (isset($_POST['submit'])) {
-    $uploadsDir = "uploads/";
+    $firstname = $_POST['firstname'];
+    $name = $_POST['name'];
+    $EMail = $_POST['EMail'];
+    $Phone = $_POST['Phone'];
+    $Adress = $_POST['Adress'];
+    $notes = $_POST['notes'];
+    $Username = $_POST['Username'];
+    $uploadsDir = "./admin/uploads/";
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = $uploadsDir . $filename;
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
     require_once 'connection.php';
     // Get all the submitted data from the form
-    $sql = " UPDATE users  SET image = '$filename' where UserID='$userid' ";
+    $update = "UPDATE users SET firstname='$firstname',name='$name',EMail='$EMail',Phone='$Phone',Adress='$Adress',Note='$notes' WHERE  UserID='$userid'";
+    if (mysqli_query($conn, $update)) {
+        echo "Record was updated successfully.";
+    } else {
+        echo "ERROR: Could not able to execute $update. "
+            . mysqli_error($conn);
+    }
+    if ($_FILES['uploadfile']['size'] == 0 && $_FILES['uploadfile']['error'] == 0) {
+        echo "<h3> empty</h3>";
+    } else {
+        $sql = " UPDATE users  SET image = '$filename' where UserID='$userid' ";
+        // Execute query
+        mysqli_query($conn,$sql);
+    }
+    header("Location:index.php");
 
-    // Execute query
-    mysqli_query($conn, $sql);
 }
 ?>
 
@@ -69,7 +94,7 @@ if (isset($_POST['submit'])) {
                             <div class="dasboard-sidebar">
                                 <div class="dasboard-sidebar-content fl-wrap">
                                     <div class="dasboard-avatar">
-                                        <img src="images/avatar/4.jpg" alt="">
+                                        <img src="<?php echo $image; ?>" alt="">
                                     </div>
                                     <div class="dasboard-sidebar-item fl-wrap">
                                         <h3>
@@ -113,19 +138,21 @@ if (isset($_POST['submit'])) {
                                     <div class="profile-edit-container">
                                         <div class="custom-form">
                                             <label>votre nom <i class="fas fa-user"></i></label>
-                                            <input type="text" placeholder="" value="<?php echo $data['firstname'] ?>" />
+                                            <input type="text" name='firstname' placeholder="" value="<?php echo $data['firstname'] ?>" />
                                             <label>votre prénom <i class="fas fa-user"></i></label>
-                                            <input type="text" placeholder="" value="<?php echo $data['name'] ?>" />
+                                            <input type="text" name='name' placeholder="" value="<?php echo $data['name'] ?>" />
+                                            <label>Nom d'utilisateur<i class="fas fa-user"></i></label>
+                                            <input type="text" name='Username' placeholder="" value="<?php echo $data['Username'] ?>" />
                                             <label>Adresse e-mail<i class="fas fa-envelope"></i> </label>
-                                            <input type="text" placeholder="" value="<?php echo $data['EMail'] ?>" />
+                                            <input type="text" name='EMail' placeholder="" value="<?php echo $data['EMail'] ?>" />
                                             <label>Numéro de téléphone<i class="fas fa-phone"></i> </label>
-                                            <input type="text" placeholder="" value="<?php echo $data['Phone'] ?>" />
+                                            <input type="text" name='Phone' placeholder="" value="<?php echo $data['Phone'] ?>" />
                                             <label> Adresse <i class="fas fa-map-marker"></i> </label>
-                                            <input type="text" placeholder="" value="<?php echo $data['Adress'] ?>" />
+                                            <input type="text" name='Adress' placeholder="" value="<?php echo $data['Adress'] ?>" />
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <label> Notes</label>
-                                                    <textarea cols="40" rows="3" placeholder="About Me"></textarea>
+                                                    <textarea name='notes' cols="40" rows="3" placeholder="À propos de moi"></textarea>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <label>Change Avatar</label>
@@ -141,7 +168,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn    color2-bg  float-btn" name="submit" type="submit" >Save Changes<i class="fal fa-save"></i></button>
+                                        <button class="btn    color2-bg  float-btn" name="submit" type="submit">Save Changes<i class="fal fa-save"></i></button>
                                     </div>
                                 </form>
                                 <!-- profile-edit-container end-->

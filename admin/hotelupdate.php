@@ -124,7 +124,7 @@
                 "message" => "Please select a file to upload."
             );
         }
-        header("Location: http://localhost/Projet%20PFE/admin/dashboard-listing-table.php?");
+        header("Location:dashboard-listing-table.php?");
     }
     $sql1 = "SELECT * FROM images_hotel WHERE id_hotel = $id";
     $result1 = $conn->query($sql1);

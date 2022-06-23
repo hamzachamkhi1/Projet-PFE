@@ -14,7 +14,7 @@ if (isset($_POST['register'])) {
     $res1 = mysqli_query($conn, $select1);
     if (mysqli_num_rows($res) == 0 and mysqli_num_rows($res1) == 0) {
         $sql = "INSERT INTO users (firstname,name,email,Phone,Username,Pass,Image)
-                VALUES ('$firstname','$name','$email',' $phone','$username',' $password','$image')";
+                VALUES ('$firstname','$name','$email',' $phone','$username','$password','$image')";
         if (mysqli_query($conn, $sql)) {
         } else {
             echo "Error: " . $sql . ":-" . mysqli_error($conn);
