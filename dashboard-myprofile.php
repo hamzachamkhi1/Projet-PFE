@@ -91,19 +91,7 @@ if (isset($_POST['submit'])) {
                         <div class="dasboard-wrap fl-wrap">
                             <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Accueil</a><a href="#">Tableau de bord</a><span>Page de profil</span></div>
                             <!--dasboard-sidebar-->
-                            <div class="dasboard-sidebar">
-                                <div class="dasboard-sidebar-content fl-wrap">
-                                    <div class="dasboard-avatar">
-                                        <img src="<?php echo $image; ?>" alt="">
-                                    </div>
-                                    <div class="dasboard-sidebar-item fl-wrap">
-                                        <h3>
-                                            <span>Bienvenue</span>
-                                            <?php echo $data['name'] ?> <?php echo $data['firstname'] ?>
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php include('./dashboard.php')   ?>
                             <!--dasboard-sidebar end-->
                             <!-- dasboard-menu-->
                             <div class="dasboard-menu">
@@ -115,7 +103,7 @@ if (isset($_POST['submit'])) {
                                             <li><a href="dashboard-password.php">Changer le mot de passe</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="dashboard-bookings.php"> <i class="fas fa-calendar-check"></i> Réservations <span>2</span></a></li>
+                                    <li><a href="dashboard-bookings.php"> <i class="fas fa-calendar-check"></i> Réservations </a></li>
                                 </ul>
                             </div>
                             <!--dasboard-menu end-->
