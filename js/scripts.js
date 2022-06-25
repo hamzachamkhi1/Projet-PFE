@@ -1,3 +1,60 @@
+var current_fs, next_fs, previous_fs;
+var left, opacity, scale;
+var animating;
+$("#action").on("click", (e)=>{
+  if($("#action").text()=="Pending...")
+    return;
+  //Get Data to send
+  $surname = $("#surname").val();
+  console.log($surname);
+  //Pending
+  $("#action").text("Pending...");
+  //send Request
+  $.post('saveReservation.php', {surname: $surname}, function(response){ 
+    if(response=="True"){
+      $("#action").text("Done");
+      e.preventDefault();
+      if (animating) return false;
+      animating = true;
+      current_fs = $("#action").parent();
+      next_fs = $("#action").parent().next();
+      $("#progressbar li")
+        .eq($("fieldset.book_mdf").index(next_fs))
+        .addClass("active");
+      next_fs.show();
+      current_fs.animate(
+        {
+          opacity: 0,
+        },
+        {
+          step: function (now, mx) {
+            scale = 1 - (1 - now) * 0.2;
+            left = now * 50 + "%";
+            opacity = 1 - now;
+            current_fs.css({
+              transform: "scale(" + scale + ")",
+              position: "absolute",
+            });
+            next_fs.css({
+              left: left,
+              opacity: opacity,
+              position: "relative",
+            });
+          },
+          duration: 1200,
+          complete: function () {
+            current_fs.hide();
+            animating = false;
+          },
+          easing: "easeInOutBack",
+        });
+    }else{
+      $('#errorMsg').css('opacity', '1');
+    }
+  });
+});
+
+
 //   all ------------------
 function initEasybook() {
   "use strict";
@@ -637,9 +694,7 @@ function initEasybook() {
       });
     },
   });
-  var current_fs, next_fs, previous_fs;
-  var left, opacity, scale;
-  var animating;
+
   $(".next-form").on("click", function (e) {
     e.preventDefault();
     if (animating) return false;

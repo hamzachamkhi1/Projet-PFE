@@ -194,7 +194,7 @@ if (isset($_POST['action'])) {
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <label>Prénom <i class="fas fa-user"></i></label>
-                                                                <input type="text" name='name1' placeholder="Your Name" value="<?php echo $data1['firstname'] ?>" />
+                                                                <input type="text" id="surname" name='name1' placeholder="Your Name" value="<?php echo $data1['firstname'] ?>" />
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <label>Nom de famille <i class="fas fa-user"></i></label>
@@ -295,7 +295,8 @@ if (isset($_POST['action'])) {
                                                         <div class="log-separator fl-wrap"><span>or</span></div>
                                                         <span class="fw-separator"></span>
                                                         <a href="#" class="previous-form  back-form action-button    color-bg"><i class="fas fa-angle-left"></i> Retour</a>
-                                                        <a href="#"  name="action" class="next-form  action-button btn color2-bg no-shdow-btn">Confirmer et payer<i class="fas fa-angle-right"></i></a>
+                                                        <a href="#"  id="action" name="action" class="action-button btn color2-bg no-shdow-btn" style="float : right">Confirmer et payer<i class="fas fa-angle-right"></i></a>
+                                                        <p id = "errorMsg" style="color : red; text-align : center; opacity : 0;pointer-events: none">Error While Sending Request, Please try again in few minutes</p>
                                                     </fieldset>
                                                     <fieldset class="fl-wrap book_mdf">
                                                         <div class="list-single-main-item-title fl-wrap">
