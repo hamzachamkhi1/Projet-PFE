@@ -6,7 +6,7 @@ if (session_status() != 2)
 require "login.php";
 
 if (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected") {
-    header("Location: http://localhost/PROJET%20PFE/index.php");
+    header("Location:index.php");
     die();
 }
 $username = $_SESSION['username'];
@@ -111,20 +111,16 @@ if ($r == 0) {
     $count = sizeof($arr);
     $countch = sizeof($arr_values);
 }
-if (isset($_POST['action'])) {
-    $username = $_SESSION['username'];
-    $hotelid = $_GET["id"];
-    $sql = "SELECT id_city FROM hotel WHERE id = $hotelid";
-    $id_city = $conn->query($sql);
-    $sqlcity = "SELECT Nom FROM cites WHERE id = $id_city";
-    $city = $conn->query($sqlcity);
-    $name1 = $_POST['name1'];
-    $name2 = $_POST['name2'];
-    $client = $name2 . " " . $name1;
-    print_r($city);
-    print_r($client);
-}
-
+$sql = "SELECT id_city FROM hotel WHERE id = $hotelid";
+$resultcity = $conn->query($sql);
+$datacity = $resultcity->fetch_assoc();
+$id_city = $datacity["id_city"];
+$sqlcity = "SELECT * FROM cites WHERE id = $id_city";
+$resultNcity = $conn->query($sqlcity);
+$dataNcity = $resultNcity->fetch_assoc();
+$city = $dataNcity['Nom'];
+$user_id=$data1['UserID'];
+$facture="invoice.php?id=$hotelid&iduser=$user_id" ;
 ?>
 
 <!DOCTYPE HTML>
@@ -191,6 +187,14 @@ if (isset($_POST['action'])) {
                                                         <div class="list-single-main-item-title fl-wrap">
                                                             <h3>Vos informations personnelles</h3>
                                                         </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="hidden" id="city" name='city' value="<?php echo  $city; ?>" />
+                                                            <input type="hidden" id="hotelid" name='hotelid' value="<?php echo  $hotelid; ?>" />
+                                                            <input type="hidden" id="userid" name='userid' value="<?php echo  $data1['UserID']; ?>" />
+                                                            <input type="hidden" id="username" name='username' value="<?php echo $username; ?>" />
+                                                            <input type="hidden" id="date11" name='date11' value="<?php echo $date11; ?>" />
+                                                            <input type="hidden" id="facture" name='facture' value="<?php echo  $facture; ?>" />
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <label>Prénom <i class="fas fa-user"></i></label>
@@ -198,7 +202,7 @@ if (isset($_POST['action'])) {
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <label>Nom de famille <i class="fas fa-user"></i></label>
-                                                                <input type="text" name='name2' placeholder="Your Last Name" value="<?php echo $data1['name'] ?>" />
+                                                                <input type="text" id="name" name='name2' placeholder="Your Last Name" value="<?php echo $data1['name'] ?>" />
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -213,7 +217,7 @@ if (isset($_POST['action'])) {
                                                         </div>
                                                         <div class="filter-tags">
                                                             <input id="check-a" type="checkbox" name="check">
-                                                            <label for="check-a">En continuant, vous acceptez les<a href="#" target="_blank">Termes et conditions</a>.</label>
+                                                            <label for="check-a">En continuant, vous acceptez les<a href="#" target="_blank" required>Termes et conditions</a>.</label>
                                                         </div>
                                                         <span class="fw-separator"></span>
                                                         <a href="#" class="next-form action-button btn no-shdow-btn color-bg">Adresse de facturation <i class="fas fa-angle-right"></i></a>
@@ -295,8 +299,8 @@ if (isset($_POST['action'])) {
                                                         <div class="log-separator fl-wrap"><span>or</span></div>
                                                         <span class="fw-separator"></span>
                                                         <a href="#" class="previous-form  back-form action-button    color-bg"><i class="fas fa-angle-left"></i> Retour</a>
-                                                        <a href="#"  id="action" name="action" class="action-button btn color2-bg no-shdow-btn" style="float : right">Confirmer et payer<i class="fas fa-angle-right"></i></a>
-                                                        <p id = "errorMsg" style="color : red; text-align : center; opacity : 0;pointer-events: none">Error While Sending Request, Please try again in few minutes</p>
+                                                        <a href="#" id="action" name="action" class="action-button btn color2-bg no-shdow-btn" style="float : right">Confirmer et payer<i class="fas fa-angle-right"></i></a>
+                                                        <p id="errorMsg" style="color : red; text-align : center; opacity : 0;pointer-events: none">Erreur lors de l'envoi de la demande, veuillez réessayer dans quelques minutes</p>
                                                     </fieldset>
                                                     <fieldset class="fl-wrap book_mdf">
                                                         <div class="list-single-main-item-title fl-wrap">
