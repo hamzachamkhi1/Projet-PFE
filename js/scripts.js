@@ -21,10 +21,12 @@ $("#action").on("click", (e)=>{
   console.log($date11);
   $facture = $("#facture").val();
   console.log($facture);
+  $state = $("#state").val();
+  console.log($state);
   //Pending
   $("#action").text("Pending...");
   //send Request
-  $.post('saveReservation.php', {surname: $surname , hotelid: $hotelid , userid: $userid , name: $name , username: $username , city: $city , date11: $date11 , facture: $facture }, function(response){
+  $.post('saveReservation.php', {surname: $surname , hotelid: $hotelid , userid: $userid , name: $name , username: $username , city: $city , date11: $date11 , facture: $facture , state: $state }, function(response){
     console.log(response) ;
     if(response=="True"){
       $("#action").text("Done");

@@ -80,9 +80,9 @@ if (isset($_POST['submit'])) {
                                 <div class="dasboard-menu-btn color3-bg">Menu du tableau de bord <i class="fas fa-bars"></i></div>
                                 <ul class="dasboard-menu-wrap">
                                     <li>
-                                        <a href="dashboard.php" class="user-profile-act"><i class="fas fa-user"></i>Profil</a>
+                                        <a href="" class="user-profile-act"><i class="fas fa-user"></i>Profil</a>
                                         <ul>
-                                            <li><a href="dashboard-myprofile.php">Changer le mot de passe</a></li>
+                                            <li><a href="dashboard-myprofile.php">Editer le profil</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="dashboard-bookings.php"> <i class="fas fa-calendar-check"></i> Réservations</a></li>

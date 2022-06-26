@@ -250,9 +250,9 @@ require "login.php" ?>
                                         <div class="rate-class-name-wrap fl-wrap">
                                             <div class="rate-class-name">
                                                 <span>4.5</span>
-                                                <div class="score"><strong>Very Good</strong>2 Reviews </div>
+                                                <div class="score"><strong>Très bien</strong>2 Commentaires </div>
                                             </div>
-                                            <a href="#sec6" class="color-bg  custom-scroll-link">Add Review</a>
+                                            <a href="#sec6" class="color-bg  custom-scroll-link">Ajouter un commentaire</a>
                                         </div>
                                         <div class="review-score-detail">
                                             <!-- review-score-detail-list-->
@@ -685,23 +685,23 @@ require "login.php" ?>
                                     <!-- list-single-main-item -->
                                     <div class="list-single-main-item fl-wrap" id="sec5">
                                         <div class="list-single-main-item-title fl-wrap">
-                                            <h3>Item Reviews - <span> 2 </span></h3>
+                                            <h3>Avis sur les articles - <span> 2 </span></h3>
                                         </div>
                                         <!--reviews-score-wrap-->
                                         <div class="reviews-score-wrap fl-wrap">
                                             <div class="review-score-total">
                                                 <span>
                                                     4.5
-                                                    <strong>Very Good</strong>
+                                                    <strong>Très bien</strong>
                                                 </span>
-                                                <a href="#" class="color2-bg">Add Review</a>
+                                                <a href="#sec6" class="color2-bg">Ajouter un commentaire</a>
                                             </div>
                                             <div class="review-score-detail">
                                                 <!-- review-score-detail-list-->
                                                 <div class="review-score-detail-list">
                                                     <!-- rate item-->
                                                     <div class="rate-item fl-wrap">
-                                                        <div class="rate-item-title fl-wrap"><span>Cleanliness</span></div>
+                                                        <div class="rate-item-title fl-wrap"><span>Propreté</span></div>
                                                         <div class="rate-item-bg" data-percent="100%">
                                                             <div class="rate-item-line color-bg" style="width: 100%;"></div>
                                                         </div>
@@ -710,7 +710,7 @@ require "login.php" ?>
                                                     <!-- rate item end-->
                                                     <!-- rate item-->
                                                     <div class="rate-item fl-wrap">
-                                                        <div class="rate-item-title fl-wrap"><span>Comfort</span></div>
+                                                        <div class="rate-item-title fl-wrap"><span>Confort</span></div>
                                                         <div class="rate-item-bg" data-percent="90%">
                                                             <div class="rate-item-line color-bg" style="width: 90%;"></div>
                                                         </div>
@@ -719,7 +719,7 @@ require "login.php" ?>
                                                     <!-- rate item end-->
                                                     <!-- rate item-->
                                                     <div class="rate-item fl-wrap">
-                                                        <div class="rate-item-title fl-wrap"><span>Staf</span></div>
+                                                        <div class="rate-item-title fl-wrap"><span>Personnel</span></div>
                                                         <div class="rate-item-bg" data-percent="80%">
                                                             <div class="rate-item-line color-bg" style="width: 80%;"></div>
                                                         </div>
@@ -728,7 +728,7 @@ require "login.php" ?>
                                                     <!-- rate item end-->
                                                     <!-- rate item-->
                                                     <div class="rate-item fl-wrap">
-                                                        <div class="rate-item-title fl-wrap"><span>Facilities</span></div>
+                                                        <div class="rate-item-title fl-wrap"><span>Installations</span></div>
                                                         <div class="rate-item-bg" data-percent="90%">
                                                             <div class="rate-item-line color-bg" style="width: 90%;"></div>
                                                         </div>
@@ -758,23 +758,6 @@ require "login.php" ?>
                                                 </div>
                                             </div>
                                             <!--reviews-comments-item end-->
-                                            <!-- reviews-comments-item -->
-                                            <div class="reviews-comments-item">
-                                                <div class="review-comments-avatar">
-                                                    <img src="images/avatar/5.jpg" alt="">
-                                                </div>
-                                                <div class="reviews-comments-item-text">
-                                                    <h4><a href="#">Adam Koncy</a></h4>
-                                                    <div class="review-score-user">
-                                                        <span>4.7</span>
-                                                        <strong>Very Good</strong>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <p>" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere convallis purus non cursus. Cras metus neque, gravida sodales massa ut. "</p>
-                                                    <div class="reviews-comments-item-date"><span><i class="far fa-calendar-check"></i>03 December 2017</span><a href="#"><i class="fal fa-reply"></i> Reply</a></div>
-                                                </div>
-                                            </div>
-                                            <!--reviews-comments-item end-->
                                         </div>
                                     </div>
                                     <!-- list-single-main-item end -->
@@ -792,7 +775,7 @@ require "login.php" ?>
                                                         <div class="review-range-container">
                                                             <!-- review-range-item-->
                                                             <div class="review-range-item">
-                                                                <div class="range-slider-title">Cleanliness</div>
+                                                                <div class="range-slider-title">Propreté</div>
                                                                 <div class="range-slider-wrap ">
                                                                     <input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="4">
                                                                 </div>
@@ -831,14 +814,14 @@ require "login.php" ?>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label><i class="fas fa-user"></i></label>
-                                                            <input type="text" placeholder="Your Name *" value="" />
+                                                            <input type="text" placeholder="votre nom*" value="" />
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label><i class="fas fa-envelope"></i> </label>
-                                                            <input type="text" placeholder="Email Address*" value="" />
+                                                            <input type="text" placeholder="Adresse e-mail*" value="" />
                                                         </div>
                                                     </div>
-                                                    <textarea cols="40" rows="3" placeholder="Your Review:"></textarea>
+                                                    <textarea cols="40" rows="3" placeholder="Votre avis :"></textarea>
                                                 </fieldset>
                                                 <button class="btn  big-btn flat-btn float-btn color2-bg" style="margin-top:30px">Poster le commentaire <i class="fas fa-paper-plane"></i></button>
                                             </form>
@@ -859,58 +842,39 @@ require "login.php" ?>
                                     <div class="box-widget-item fl-wrap">
                                         <div class="box-widget">
                                             <div class="box-widget-content">
-                                                <?php
-
-                                                while ($row = $result->fetch_assoc()) {
-                                                ?>
-                                                    <div class="box-widget-item-header">
-                                                        <h3> Coordonnées</h3>
-                                                    </div>
-                                                    <div class="box-widget-list">
-                                                        <ul>
-                                                            <li><span><i class="fas fa-map-marker"></i> Adresse :</span> <a href="#"><?php echo $row['adresse']; ?></a></li>
-                                                            <li><span><i class="fas fa-phone"></i> Téléphoner :</span> <a href="#"><?php echo $row['phone']; ?></a></li>
-                                                            <li><span><i class="fa-solid fa-fax"></i></i> Fax :</span> <a href="#"><?php echo $row['fax']; ?></a></li>
-                                                            <li><span><i class="fas fa-envelope"></i> Courrier :</span> <a href="#"><?php echo $row['Email_adresse']; ?></a></li>
-                                                            <li><span><i class="fas fa-browser"></i> Site Internet :</span> <a href="#"><?php echo $row['website']; ?></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list-widget-social">
-                                                        <ul>
-                                                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i><?php echo $row['facebook']; ?></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i><?php echo $row['twitter']; ?></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i><?php echo $row['instagram']; ?></a></li>
-                                                        </ul>
-                                                    </div>
-                                                <?php
-
-                                                } ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--box-widget-item end -->
-                                    <!--box-widget-item -->
-                                    <div class="box-widget-item fl-wrap">
-                                        <div class="box-widget">
-                                            <div class="box-widget-content">
                                                 <div class="box-widget-item-header">
-                                                    <h3> Échelle des prix </h3>
+                                                    <h3> Coordonnées</h3>
                                                 </div>
-                                                <div class="claim-price-wdget fl-wrap">
-                                                    <div class="claim-price-wdget-content fl-wrap">
-                                                        <div class="pricerange fl-wrap"><span>Prix : </span> 81$ - 320$ </div>
-                                                        <div class="claim-widget-link fl-wrap"><span>Posséder ou travailler ici?</span><a href="#">Réclamez maintenant !</a></div>
-                                                    </div>
+                                                <div class="box-widget-list">
+                                                    <ul>
+                                                        <li><span><i class="fas fa-map-marker"></i> Adresse :</span> <a href="#"><?php echo $data['adresse']; ?></a></li>
+                                                        <li><span><i class="fas fa-phone"></i> Téléphoner :</span> <a href="#"><?php echo $data['phone']; ?></a></li>
+                                                        <li><span><i class="fa-solid fa-fax"></i></i> Fax :</span> <a href="#"><?php echo $data['fax']; ?></a></li>
+                                                        <li><span><i class="fas fa-envelope"></i> Courrier :</span> <a href="#"><?php echo $data['Email_adresse']; ?></a></li>
+                                                        <li><span><i class="fas fa-browser"></i> Site Internet :</span> <a href="#"><?php echo $data['website']; ?></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="list-widget-social">
+                                                    <ul>
+                                                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i><?php echo $data['facebook']; ?></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i><?php echo $data['twitter']; ?></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i><?php echo $data['instagram']; ?></a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!--box-widget-item end -->
                                     <!--box-widget-item -->
+                                    <?php
+                                    $id_city = $data['id_city'];
+                                    $sqlwea = "SELECT * FROM cites WHERE id=$id_city";
+                                    $resultwea = $conn->query($sqlwea);
+                                    $datawea = $resultwea->fetch_assoc();
+                                    ?>
                                     <div class="box-widget-item fl-wrap">
-                                        <div id="weather-widget" class="gradient-bg ideaboxWeather" data-city="New York"></div>
+                                        <div id="weather-widget" class="gradient-bg ideaboxWeather" data-city="<?php echo $datawea['Nom'] ?>"></div>
                                     </div>
-                                    <!--box-widget-item end -->
                                     <!--box-widget-item end -->
                                     <!--box-widget-item -->
                                     <div class="box-widget-item fl-wrap">
@@ -949,7 +913,7 @@ require "login.php" ?>
                                                             </div>
                                                         </li>
                                                     </ul>
-                                                    <a class="widget-posts-link" href="#">See All Listing <i class="fas fa-long-arrow-right"></i> </a>
+                                                    <a class="widget-posts-link" href="#">Voir toutes les annonces <i class="fas fa-long-arrow-right"></i> </a>
                                                 </div>
                                             </div>
                                         </div>

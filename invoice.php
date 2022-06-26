@@ -113,7 +113,6 @@ if ($r == 0) {
 }
 $timezone = date_default_timezone_get();
 $datenow = date('Y/m/d');
-print_r(session_id());
 
 ?>
 <!DOCTYPE HTML>

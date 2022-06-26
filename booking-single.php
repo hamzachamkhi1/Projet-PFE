@@ -119,8 +119,11 @@ $sqlcity = "SELECT * FROM cites WHERE id = $id_city";
 $resultNcity = $conn->query($sqlcity);
 $dataNcity = $resultNcity->fetch_assoc();
 $city = $dataNcity['Nom'];
-$user_id=$data1['UserID'];
-$facture="invoice.php?id=$hotelid&iduser=$user_id" ;
+$user_id = $data1['UserID'];
+$sqlreser = "SELECT * FROM reservation WHERE Agent='$username'";
+$result = mysqli_query($conn, $sqlreser);
+$row = mysqli_num_rows($result);
+$facture = "invoice.php?id=$hotelid&iduser=$user_id&num=$row";
 ?>
 
 <!DOCTYPE HTML>
@@ -129,7 +132,7 @@ $facture="invoice.php?id=$hotelid&iduser=$user_id" ;
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -194,6 +197,7 @@ $facture="invoice.php?id=$hotelid&iduser=$user_id" ;
                                                             <input type="hidden" id="username" name='username' value="<?php echo $username; ?>" />
                                                             <input type="hidden" id="date11" name='date11' value="<?php echo $date11; ?>" />
                                                             <input type="hidden" id="facture" name='facture' value="<?php echo  $facture; ?>" />
+                                                            <input type="hidden" id="state" name='state' value="Confirmer" />
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-6">
@@ -296,7 +300,6 @@ $facture="invoice.php?id=$hotelid&iduser=$user_id" ;
                                                                 <p style="padding-top:20px;">*Numéro à trois chiffres au dos de votre carte</p>
                                                             </div>
                                                         </div>
-                                                        <div class="log-separator fl-wrap"><span>or</span></div>
                                                         <span class="fw-separator"></span>
                                                         <a href="#" class="previous-form  back-form action-button    color-bg"><i class="fas fa-angle-left"></i> Retour</a>
                                                         <a href="#" id="action" name="action" class="action-button btn color2-bg no-shdow-btn" style="float : right">Confirmer et payer<i class="fas fa-angle-right"></i></a>
@@ -312,7 +315,7 @@ $facture="invoice.php?id=$hotelid&iduser=$user_id" ;
                                                                 <h4>Merci. Votre réservation a été reçue.</h4>
                                                                 <div class="clearfix"></div>
                                                                 <p>Votre paiement a été traité avec succès.</p>
-                                                                <a href="invoice.php?id=<?php echo $hotelid; ?>&iduser=<?php echo $data1['UserID']; ?>" target="_blank" class="color-bg">Voir la facture</a>
+                                                                <a href="invoice.php?id=<?php echo $facture;?>" target="_blank" class="color-bg">Voir la facture</a>
                                                             </div>
                                                         </div>
                                                         <span class="fw-separator"></span>
