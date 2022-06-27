@@ -90,9 +90,9 @@
                                 </li>
                                 <li><a href="dashboard-add-listing.php"><i class="fa-solid fa-plus"></i> Ajouter un Hôtel </a></li>
                                 <li>
-                                    <a href="dasboardd-user.php"><i class="fa-solid fa-users"></i> Liste des Utilisateurs</a>
+                                    <a href="dashboard-user.php"><i class="fa-solid fa-users"></i> Liste des Utilisateurs</a>
                                 </li>
-                                <li><a href="reservation.php"><i class="fa-solid fa-receipt"></i>Liste des Réservations</a></li>
+                                <li><a href="reservation.php"> <i class="fa-solid fa-receipt"></i> Liste des Réservations</a></li>
                             </ul>
                         </div>
                         <!--dasboard-menu end-->

@@ -1,6 +1,6 @@
 function singleMap() {
     var markerIcon = {
-        url: 'images/marker2.png',
+        url: '../images/marker2.png',
     }
     var myLatLng = {
         lng: $('#singleMap').data('longitude'),

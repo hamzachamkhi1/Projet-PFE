@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="../css/style.css">
     <link type="text/css" rel="stylesheet" href="../css/color.css">
     <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="./images/favicon.ico">
 
 </head>
 
@@ -234,7 +234,7 @@
                                         </li>
                                         <li><a href="dashboard-add-listing.php" class="user-profile-act"><i class="fa-solid fa-plus"></i> Ajouter un Hôtel</a></li>
                                         <li>
-                                            <a href="dasboardd-user.php"><i class="fa-solid fa-users"></i>  Liste des Utilisateurs  </a>
+                                            <a href="dashboard-user.php"><i class="fa-solid fa-users"></i>  Liste des Utilisateurs  </a>
                                             
                                         </li>
                                         <li><a href="reservation.php"><i class="fa-solid fa-receipt"></i>Liste des Réservations</a></li>
@@ -320,7 +320,7 @@
                                             </div>
                                         </div>
                                         <div class="map-container">
-                                            <div id="singleMap" class="vis-map" data-latitude="40.7427837" data-longitude="-73.11445617675781"></div>
+                                            <div id="singleMap" class="vis-map" data-latitude="36.4073" data-longitude="10.6225"></div>
                                         </div>
                                         <div class="col-md-6">
                                             <label>Adresse e-mail<i class="fas fa-envelope"></i> </label>
@@ -662,7 +662,7 @@
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/plugins.js"></script>
     <script type="text/javascript" src="../js/scripts.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbVEb8GFpi-a1cw4KqU-eJ3Kg3cTMqJPM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA844tkNbu9Gk651PRbkdn0AwxAPUXp8wI"></script>
     <script type="text/javascript" src="../js/map-add.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {

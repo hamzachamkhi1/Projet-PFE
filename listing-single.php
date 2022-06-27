@@ -165,13 +165,13 @@ require "login.php" ?>
                             <nav class="scroll-nav scroll-init">
                                 <ul>
                                     <li><a class="act-scrlink" href="#sec1">Gallery</a></li>
-                                    <li><a href="#sec2">Des détails</a></li>
-                                    <li><a href="#sec3">Commodités</a></li>
-                                    <li><a href="#sec4">Chambres</a></li>
-                                    <li><a href="#sec5">Commentaires</a></li>
+                                    <li><a href="#sec2">Details</a></li>
+                                    <li><a href="#sec3">Amenities</a></li>
+                                    <li><a href="#sec4">Rooms</a></li>
+                                    <li><a href="#sec5">Reviews</a></li>
                                 </ul>
                             </nav>
-                            <a href="#" class="show-hidden-map"> <span>Sur la carte</span> <i class="fas fa-map-marked-alt"></i></a>
+                            <a href="#" class="show-hidden-map"> <span>On The Map</span> <i class="fal fa-map-marked-alt"></i></a>
                         </div>
                     </div>
                     <!--  scroll-nav-wrapper end  -->
@@ -965,7 +965,7 @@ require "login.php" ?>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbVEb8GFpi-a1cw4KqU-eJ3Kg3cTMqJPM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA844tkNbu9Gk651PRbkdn0AwxAPUXp8wI"></script>
     <script>
         function getpo(selectObject, checkObject) {
             var prix = 0;

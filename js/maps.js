@@ -11,7 +11,7 @@
         }
 	    //  Map Infoboxes ------------------
         var locations = [
-            [locationData('listing-single2.html', 'images/gal/8.jpg', 'Premium Plaza Hotel', "1327 Intervale Ave, Bronx, NY, USA", "$ 320", "5"), 40.72956781, -73.99726866, 0, markerIcon],
+            [locationData('listing-single.php', 'images/gal/8.jpg', 'Premium Plaza Hotel', "1327 Intervale Ave, Bronx, NY, USA", "$ 320", "5"), 40.72956781, -73.99726866, 0, markerIcon],
             [locationData('listing-single.php', 'images/gal/4.jpg', 'Grand Hero Palace', "W 85th St, NY, USA ", "$ 120", "4"), 40.76221766, -73.96511769, 1, markerIcon],
             [locationData('listing-single.php', 'images/gal/6.jpg', 'Park Central', "40 Journal Square Plaza, NJ,  USA", "$ 50", "5"), 40.88496706, -73.88191222, 2, markerIcon],
             [locationData('listing-single.php', 'images/gal/2.jpg', 'Holiday Home', "75 Prince St,  NY, USA", "$ 50", "3"), 40.72228267, -73.99246214, 3, markerIcon],
@@ -27,7 +27,7 @@
         var map = new google.maps.Map(document.getElementById('map-main'), {
             zoom: 10,
             scrollwheel: false,
-            center: new google.maps.LatLng(40.8, -73.90),
+            center: new google.maps.LatLng(10.6032656, 36.4057843),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoomControl: false,
             mapTypeControl: false,

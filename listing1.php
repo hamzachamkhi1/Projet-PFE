@@ -1,6 +1,6 @@
 <?php
 if (session_status() != 2)
-  session_start();
+    session_start();
 require "registerform.php";
 require "login.php";
 ?>
@@ -82,15 +82,17 @@ require "login.php";
             <!-- content-->
             <div class="content">
                 <!-- Map -->
+                <!-- Map -->
                 <div class="map-container column-map right-pos-map fix-map hid-mob-map">
-                    <div class="map-main"></div>
+                    <div id="map-main"></div>
                     <ul class="mapnavigation">
-                        <li><a href="#" class="prevmap-nav"><i class="fas fa-caret-left"></i> Préc</a></li>
-                        <li><a href="#" class="nextmap-nav">Suiv <i class="fas fa-caret-right"></i></a></li>
+                        <li><a href="#" class="prevmap-nav"><i class="fas fa-caret-left"></i> Prev</a></li>
+                        <li><a href="#" class="nextmap-nav">Next <i class="fas fa-caret-right"></i></a></li>
                     </ul>
                     <div class="map-close"><i class="fas fa-times"></i></div>
-                    <input id="pac-input" class="controls fl-wrap controls-mapwn" type="text" placeholder="Quoi à proximité ?">
+                    <input id="pac-input" class="controls fl-wrap controls-mapwn" type="text" placeholder="What Nearby ?">
                 </div>
+                <!-- Map end -->
                 <!-- Map end -->
                 <!--col-list-wrap -->
                 <div class="col-list-wrap left-list">
@@ -186,7 +188,7 @@ require "login.php";
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbVEb8GFpi-a1cw4KqU-eJ3Kg3cTMqJPM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA844tkNbu9Gk651PRbkdn0AwxAPUXp8wI"></script>
     <script type="text/javascript" src="js/mapplugins.js"></script>
     <script type="text/javascript" src="js/maps.js"></script>
 </body>

@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="../css/style.css">
     <link type="text/css" rel="stylesheet" href="../css/color.css">
     <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="./images/favicon.ico">
     <script type="text/javascript">
         function delete_id(id) {
             if (confirm('Sure To Remove This Record ?')) {
@@ -37,9 +37,16 @@
     $result = $conn->query($sql);
     if (isset($_GET['delete_id'])) {
         $id = $_GET['delete_id'];
-        print_r("hhhhhh");
-        mysqli_query($conn, "DELETE *FROM users WHERE UserID=$id");
+        mysqli_query($conn, "DELETE FROM users WHERE UserID=$id");
     }
+    $limit = 5;
+    if (isset($_GET["page"])) {
+        $page  = $_GET["page"];
+    } else {
+        $page = 1;
+    };
+    $start_from = ($page - 1) * $limit;
+    $result = mysqli_query($conn, "SELECT * FROM users ORDER BY UserID ASC LIMIT $start_from, $limit");
     ?>
     <!--loader-->
     <div class="loader-wrap">
@@ -69,7 +76,7 @@
                                     <a href="dashboard-listing-table.php"><i class="fa-solid fa-hotel"></i>Liste des hôtels</a>
                                 </li>
                                 <li><a href="dashboard-add-listing.php"><i class="fa-solid fa-plus"></i>Ajouter un Hôtel</a></li>
-                                <li><a href="dasboardd-user.php" class="user-profile-act"> <i class="fa-solid fa-users"></i>Liste des Utilisateurs</a></li>
+                                <li><a href="dashboard-user.php" class="user-profile-act"> <i class="fa-solid fa-users"></i>Liste des Utilisateurs</a></li>
                                 <li><a href="reservation.php"><i class="fa-solid fa-receipt"></i>Liste des Réservations </a></li>
                             </ul>
                         </div>
@@ -94,36 +101,33 @@
                                 if (isset($result)) {
 
                                     while ($row = $result->fetch_assoc()) {
+                                        $image = "./uploads/" . $row['Image'];
+
 
 
                                 ?>
                                         <div class="dashboard-list">
                                             <div class="dashboard-message">
-                                                <a href="javascript:delete_id(<?php echo  $row['UserID']; ?>)" class="del-btn">Delete <i class="fal fa-trash-alt"></i></a>
+                                                <a href="javascript:delete_id(<?php echo  $row['UserID']; ?>)" class="del-btn new-dashboard-item">Delete <i class="fal fa-trash-alt"></i></a>
                                                 <div class="dashboard-message-avatar">
-                                                    <img src="images/avatar/3.jpg" alt="">
+                                                    <img src="<?php echo $image; ?>" alt="">
                                                 </div>
                                                 <div class="dashboard-message-text">
 
-                                                    <h4><?php echo $row["FullName"] ?><span><?php echo $row["Date"] ?></span></h4>
+                                                    <h4> <?php echo $row['name'] ?> <?php echo $row['firstname'] ?></span></h4>
                                                     <div class="booking-details fl-wrap">
-                                                        <span class="booking-title"> EMail :</span> :
+                                                        <span class="booking-title"> Adresse e-mail</span> :
                                                         <span class="booking-text"><a href=#><?php echo $row["EMail"] ?></a></span>
                                                     </div>
                                                     <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">Username :</span>
+                                                        <span class="booking-title">Nom d'utilisateur :</span>
                                                         <span class="booking-text"><?php echo $row["Username"] ?></span>
                                                     </div>
                                                     <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">Phone :</span>
+                                                        <span class="booking-title">Numéro de téléphone :</span>
                                                         <span class="booking-text"><?php echo $row["Phone"] ?></span>
                                                     </div>
-                                                    <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">City :</span>
-                                                        <span class="booking-text"><a href="#" target="_top"><?php echo $row["City"] ?></a></span>
-                                                    </div>
                                                     <span class="fw-separator"></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere convallis purus non cursus. Cras metus neque, gravida sodales massa ut. </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -132,31 +136,36 @@
                                 <!-- dashboard-list end-->
                             </div>
                             <!-- pagination-->
-                            <div class="pagination">
-                                <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
-                                <a href="#" class="current-page">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
-                            </div>
+                            <?php
+
+                            $result_db = mysqli_query($conn, "SELECT COUNT(UserID) FROM users");
+                            $row_db = mysqli_fetch_row($result_db);
+                            $total_records = $row_db[0];
+                            $total_pages = ceil($total_records / $limit);
+                            $pagLink = $pagLink = "<div class='pagination'>";
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                $pagLink .= "<a class='page-link' href='dashboard-user.php?page=" . $i . "'>" . $i . "</a>";
+                            }
+                            echo $pagLink . "</div>";
+                            ?>
                         </div>
-                        <!-- dashboard-list-box end-->
                     </div>
-                    <!-- dasboard-wrap end-->
+                    <!-- dashboard-list-box end-->
                 </div>
-            </section>
-            <div class="limit-box fl-wrap"></div>
+                <!-- dasboard-wrap end-->
         </div>
-        <!-- content end-->
-        <a class="to-top"><i class="fas fa-caret-up"></i></a>
+        </section>
+        <div class="limit-box fl-wrap"></div>
+    </div>
+    <!-- content end-->
+    <a class="to-top"><i class="fas fa-caret-up"></i></a>
     </div>
     <!-- Main end -->
     <!--=============== scripts  ===============-->
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/plugins.js"></script>
     <script type="text/javascript" src="../js/scripts.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&libraries=places&callback=initAutocomplete"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA844tkNbu9Gk651PRbkdn0AwxAPUXp8wI&libraries=places&callback=initAutocomplete"></script>
 </body>
 
 </html>
