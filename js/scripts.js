@@ -6,28 +6,18 @@ $("#action").on("click", (e)=>{
     return;
   //Get Data to send
   $hotelid = $("#hotelid").val();
-  console.log($hotelid);
   $userid = $("#userid").val();
-  console.log($userid);
   $surname = $("#surname").val();
-  console.log($surname);
   $name = $("#name").val();
-  console.log($name);
   $username = $("#username").val();
-  console.log($username);
   $city = $("#city").val();
-  console.log($city);
   $date11 = $("#date11").val();
-  console.log($date11);
   $facture = $("#facture").val();
-  console.log($facture);
   $state = $("#state").val();
-  console.log($state);
   //Pending
   $("#action").text("Pending...");
   //send Request
   $.post('saveReservation.php', {surname: $surname , hotelid: $hotelid , userid: $userid , name: $name , username: $username , city: $city , date11: $date11 , facture: $facture , state: $state }, function(response){
-    console.log(response) ;
     if(response=="True"){
       $("#action").text("Done");
       e.preventDefault();

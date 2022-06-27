@@ -4,7 +4,7 @@
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -227,16 +227,19 @@
                         <!--dasboard-sidebar end-->
                         <!-- dasboard-menu-->
                         <div class="dasboard-menu">
-                                <div class="dasboard-menu-btn color3-bg">Menu du tableau de bord<i class="fas fa-bars"></i></div>
-                                <ul class="dasboard-menu-wrap">
-                                    <li>
-                                        <a href="dashboard-listing-table.php"><i class="fa-solid fa-hotel"></i>Liste des hôtels</a>
-                                    </li>
-                                    <li><a href="dashboard-add-listing.php"><i class="fa-solid fa-plus"></i>Ajouter un Hôtel</a></li>
-                                    <li><a href="dasboardd-user.php" class="user-profile-act"> <i class="fa-solid fa-users"></i>Liste des Utilisateurs</a></li>
-                                    <li><a href="dashboard-review.php"><i class="fa-solid fa-bars"></i>Liste des Réservations </a></li>
-                                </ul>
-                            </div>
+                                    <div class="dasboard-menu-btn color3-bg">Menu du tableau de bord<i class="fal fa-bars"></i></div>
+                                    <ul class="dasboard-menu-wrap">
+                                        <li>
+                                            <a href="dashboard-listing-table.php"><i class="fa-solid fa-hotel"></i>Liste des hôtels</a>
+                                        </li>
+                                        <li><a href="dashboard-add-listing.php" class="user-profile-act"><i class="fa-solid fa-plus"></i> Ajouter un Hôtel</a></li>
+                                        <li>
+                                            <a href="dasboardd-user.php"><i class="fa-solid fa-users"></i>  Liste des Utilisateurs  </a>
+                                            
+                                        </li>
+                                        <li><a href="reservation.php"><i class="fa-solid fa-receipt"></i>Liste des Réservations</a></li>
+                                    </ul>
+                                </div>
                         <!--dasboard-menu end-->
 
                     </div>

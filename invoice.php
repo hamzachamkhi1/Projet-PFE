@@ -231,7 +231,7 @@ $datenow = date('Y/m/d');
             </tr>
         </table>
     </div>
-    <a href="javascript:window.print()" class="print-button">Print this invoice</a>
+    <a href="javascript:window.print()" class="print-button">Imprimer cette facture</a>
 </body>
 
 </html>

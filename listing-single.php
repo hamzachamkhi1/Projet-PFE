@@ -1,6 +1,7 @@
 <?php
 if (session_status() != 2)
     session_start();
+require "registerform.php";
 require "login.php" ?>
 <!DOCTYPE HTML>
 <html lang="en">

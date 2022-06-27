@@ -4,7 +4,7 @@
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -67,7 +67,7 @@
                 $conn->query($sql3);
             }
         }
-        header("Location: http://localhost/Projet%20PFE/admin/dashboard-listing-table.php?");
+        header("Location: dashboard-listing-table.php?");
     }
     ?>
 
@@ -77,11 +77,11 @@
             <div class="wave-bg wave-bg2"></div>
             <div class="container">
                 <div class="dasboard-wrap fl-wrap">
-                    <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Home</a><a href="#">Dashboard</a><a>Listing</a><span>Edit periode</span></div>
+                    <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Accueil</a><a href="#">Tableau de bord</a><span>Modifier les périodes</span></div>
                 </div>
         </section>
         <section class="middle-padding">
-            <form action="http://localhost/Projet%20PFE/admin/periodeupdate.php?hotel_id=<?php echo $id ?>" method="POST">
+            <form action="periodeupdate.php?hotel_id=<?php echo $id ?>" method="POST">
                 <div class="container">
                     <div class="box-widget-item-header mat-top">
                         <h3>Periode</h3>

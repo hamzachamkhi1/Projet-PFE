@@ -139,11 +139,11 @@ if (isset($_POST['submit'])) {
                                             <input type="text" name='Adress' placeholder="" value="<?php echo $data['Adress'] ?>" />
                                             <div class="row">
                                                 <div class="col-sm-9">
-                                                    <label> Notes</label>
+                                                    <label> Remarques</label>
                                                     <textarea name='notes' cols="40" rows="3" placeholder="À propos de moi"></textarea>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label>Change Avatar</label>
+                                                    <label>Changer d'avatar</label>
                                                     <div class="add-list-media-wrap">
                                                         <div class="fuzone">
                                                             <div class="fu-text">
@@ -156,7 +156,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn    color2-bg  float-btn" name="submit" type="submit">Save Changes<i class="fal fa-save"></i></button>
+                                        <button class="btn    color2-bg  float-btn" name="submit" type="submit">Sauvegarder les modifications<i class="fal fa-save"></i></button>
                                     </div>
                                 </form>
                                 <!-- profile-edit-container end-->

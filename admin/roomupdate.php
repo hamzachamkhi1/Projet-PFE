@@ -4,7 +4,7 @@
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -20,7 +20,7 @@
         function deleteid(id_de) {
             var id = <?php echo $_GET['hotel_id']; ?>;
             if (confirm('Sure To Remove This Image ?')) {
-                window.location.href = 'http://localhost/Projet%20PFE/admin/roomupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
+                window.location.href = 'roomupdate.php?hotel_id=' + id + '&deleteid=' + id_de;
             }
         }
     </script>
@@ -247,7 +247,7 @@
         }
 
 
-        header("Location: http://localhost/Projet%20PFE/admin/dashboard-listing-table.php?");
+        header("Location: dashboard-listing-table.php?");
     }
 
 
@@ -267,7 +267,7 @@
             <div class="wave-bg wave-bg2"></div>
             <div class="container">
                 <div class="dasboard-wrap fl-wrap">
-                    <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Home</a><a href="#">Dashboard</a><a>Listing</a><span>Edit room</span></div>
+                    <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Accueil</a><a href="#">Tableau de bord</a><span>Modifier les chambres</span></div>
                 </div>
         </section>
         <section class="middle-padding">

@@ -1,5 +1,6 @@
 <?php
-session_start();
+if (session_status() != 2)
+  session_start();
 require "registerform.php";
 require "login.php";
 require_once 'connection.php';
@@ -35,7 +36,7 @@ if (isset($_POST['submit'])) {
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Easybook - Hotel Booking Directory Listing Template</title>
+    <title>ChamkhiBooking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
@@ -71,7 +72,7 @@ if (isset($_POST['submit'])) {
                     <div class="wave-bg wave-bg2"></div>
                     <div class="container">
                         <div class="dasboard-wrap fl-wrap">
-                            <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Home</a><a href="#">Dashboard</a><span>Profile page</span><span>Changer le mot de passe</span></div>
+                            <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Accueil</a><a href="#">Tableau de bord</a><span>Page de profil</span><span>Changer le mot de passe</span></div>
                             <!--dasboard-sidebar-->
                             <?php include('./dashboard.php')   ?>
                             <!--dasboard-sidebar end-->
@@ -130,7 +131,7 @@ if (isset($_POST['submit'])) {
                                                 . '<h3>Saisissez un mot de passe valide et réessayez.</h3>'
                                                 . '</div>';
                                         } elseif ($error == 1) {
-                                            echo '<div class="box-widget-item-header">'
+                                            echo '<div class="box-widget-item-header" style="color : red; text-align : center; opacity : 0;pointer-events: none">'
                                                 . '<h3> Vous devez saisir deux fois le même mot de passe pour le confirmer.</h3>'
                                                 . '</div>';
                                         }

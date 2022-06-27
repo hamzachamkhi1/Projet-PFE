@@ -1,5 +1,6 @@
 <?php
-session_start();
+if (session_status() != 2)
+  session_start();
 require "registerform.php";
 require "login.php";
 ?>
@@ -108,7 +109,7 @@ require "login.php";
                         <div class="container">
                             <!-- list-main-wrap-title-->
                             <div class="list-main-wrap-title fl-wrap">
-                                <h2> <?php echo $rowcount; ?> Hotels in : <?php echo $city; ?></h2>
+                                <h2> <?php echo $rowcount; ?> Hôtels à :<?php echo $city; ?></h2>
                             </div>
                             <!-- list-main-wrap-title end-->
                             <!-- listing-item-container -->

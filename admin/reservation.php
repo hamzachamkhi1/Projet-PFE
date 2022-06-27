@@ -16,13 +16,6 @@
     <link type="text/css" rel="stylesheet" href="../css/color.css">
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="images/favicon.ico">
-    <script type="text/javascript">
-        function delete_id(id) {
-            if (confirm('Sure To Remove This Record ?')) {
-                window.location.href = 'dashboard-user.php?delete_id=' + id;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -32,14 +25,6 @@
         header('Location: adminlogin.php');
     }
     include '../connection.php';
-
-    $sql = "SELECT * FROM users";
-    $result = $conn->query($sql);
-    if (isset($_GET['delete_id'])) {
-        $id = $_GET['delete_id'];
-        print_r("hhhhhh");
-        mysqli_query($conn, "DELETE *FROM users WHERE UserID=$id");
-    }
     ?>
     <!--loader-->
     <div class="loader-wrap">
@@ -63,16 +48,18 @@
                         <!--dasboard-sidebar end-->
                         <!-- dasboard-menu-->
                         <div class="dasboard-menu">
-                            <div class="dasboard-menu-btn color3-bg">Menu du tableau de bord <i class="fas fa-bars"></i></div>
-                            <ul class="dasboard-menu-wrap">
-                                <li>
-                                    <a href="dashboard-listing-table.php"><i class="fa-solid fa-hotel"></i>Liste des hôtels</a>
-                                </li>
-                                <li><a href="dashboard-add-listing.php"><i class="fa-solid fa-plus"></i>Ajouter un Hôtel</a></li>
-                                <li><a href="dasboardd-user.php" class="user-profile-act"> <i class="fa-solid fa-users"></i>Liste des Utilisateurs</a></li>
-                                <li><a href="reservation.php"><i class="fa-solid fa-receipt"></i>Liste des Réservations </a></li>
-                            </ul>
-                        </div>
+                                    <div class="dasboard-menu-btn color3-bg">Menu du tableau de bord <i class="fal fa-bars"></i></div>
+                                    <ul class="dasboard-menu-wrap">
+                                        <li>
+                                            <a href="dashboard-listing-table.php"><i class="fa-solid fa-hotel"></i>Liste des hôtels</a>
+                                        </li>
+                                        <li><a href="dashboard-add-listing.php"><i class="fa-solid fa-plus"></i> Ajouter un Hôtel</a></li>
+                                        <li>
+                                            <a href="dasboardd-user.php"><i class="fa-solid fa-users"></i> Liste des Utilisateurs  </a>
+                                          
+                                        </li>
+                                        <li><a href="reservation.php" class="user-profile-act"> <i class="fa-solid fa-receipt"></i>Liste des Réservations</a></li>                                    </ul>
+                                </div>
                         <!--dasboard-menu end-->
                     </div>
                 </div>
@@ -87,48 +74,48 @@
                         <div class="dashboard-content fl-wrap">
                             <div class="dashboard-list-box fl-wrap">
                                 <div class="dashboard-header fl-wrap">
-                                    <h3>Liste des Utilisateurs</h3>
+                                    <h3>Réservations</h3>
                                 </div>
                                 <!-- dashboard-list end-->
                                 <?php
-                                if (isset($result)) {
-
-                                    while ($row = $result->fetch_assoc()) {
-
+                                $sql = "SELECT * FROM reservation";
+                                $result = $conn->query($sql);
+                                while ($data1 = $result->fetch_assoc()) {
 
                                 ?>
-                                        <div class="dashboard-list">
-                                            <div class="dashboard-message">
-                                                <a href="javascript:delete_id(<?php echo  $row['UserID']; ?>)" class="del-btn">Delete <i class="fal fa-trash-alt"></i></a>
-                                                <div class="dashboard-message-avatar">
-                                                    <img src="images/avatar/3.jpg" alt="">
+                                    <div class="dashboard-list">
+                                        <div class="dashboard-message">
+                                            <span class="new-dashboard-item"><?php echo $data1["state"]; ?></span>
+                                            <div class="dashboard-message-text">
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Numéro de réservation</span> :
+                                                    <span class="booking-text"><?php echo $data1["NumReservation"]; ?></span>
                                                 </div>
-                                                <div class="dashboard-message-text">
-
-                                                    <h4><?php echo $row["FullName"] ?><span><?php echo $row["Date"] ?></span></h4>
-                                                    <div class="booking-details fl-wrap">
-                                                        <span class="booking-title"> EMail :</span> :
-                                                        <span class="booking-text"><a href=#><?php echo $row["EMail"] ?></a></span>
-                                                    </div>
-                                                    <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">Username :</span>
-                                                        <span class="booking-text"><?php echo $row["Username"] ?></span>
-                                                    </div>
-                                                    <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">Phone :</span>
-                                                        <span class="booking-text"><?php echo $row["Phone"] ?></span>
-                                                    </div>
-                                                    <div class="booking-details fl-wrap">
-                                                        <span class="booking-title">City :</span>
-                                                        <span class="booking-text"><a href="#" target="_top"><?php echo $row["City"] ?></a></span>
-                                                    </div>
-                                                    <span class="fw-separator"></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere convallis purus non cursus. Cras metus neque, gravida sodales massa ut. </p>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Agent :</span>
+                                                    <span class="booking-text"><?php echo $data1["Agent"]; ?></span>
+                                                </div>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Destination :</span>
+                                                    <span class="booking-text"><?php echo $data1["Destionation"]; ?></span>
+                                                </div>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Client :</span>
+                                                    <span class="booking-text"><?php echo $data1["Client"]; ?></span>
+                                                </div>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Date de réservation :</span>
+                                                    <span class="booking-text"><?php echo $data1["Dateofreservation"]; ?></span>
+                                                </div>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Facture :</span>
+                                                    <span class="booking-text"> <a href="<?php echo $data1["voucher"]; ?>" target="_top">Voir facture</a></span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 <?php }
-                                } ?>
+                                ?>
                                 <!-- dashboard-list end-->
                             </div>
                             <!-- pagination-->
