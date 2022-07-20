@@ -9,6 +9,8 @@ if (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected") {
     header("Location:index.php");
     die();
 }
+$_SESSION['prix']=$_GET["total"];
+$prix=$_SESSION['prix'];
 $username = $_SESSION['username'];
 $sql1 = "SELECT * FROM users WHERE Username = '$username'";
 $result1 = $conn->query($sql1);
@@ -19,8 +21,7 @@ $nbadulte = $_SESSION['nbadulte'];
 $date = $_SESSION['main-input-search'];
 $date1 = new DateTime($date[0]);
 $date2 = new DateTime($date[1]);
-$hotelid = $_GET["id"];
-$_SESSION['hotelid'] = $hotelid;
+$hotelid=$_SESSION['idho'] ;
 $numberOfNights = $date2->diff($date1)->format("%a");
 $sql = "SELECT * FROM hotel WHERE id = $hotelid";
 $result = $conn->query($sql);
@@ -315,7 +316,7 @@ $facture = "invoice.php?id=$hotelid&iduser=$user_id&num=$row";
                                                                 <h4>Merci. Votre réservation a été reçue.</h4>
                                                                 <div class="clearfix"></div>
                                                                 <p>Votre paiement a été traité avec succès.</p>
-                                                                <a href="invoice.php?id=<?php echo $facture;?>" target="_blank" class="color-bg">Voir la facture</a>
+                                                                <a href="<?php echo $facture;?>" target="_blank" class="color-bg">Voir la facture</a>
                                                             </div>
                                                         </div>
                                                         <span class="fw-separator"></span>
@@ -371,7 +372,7 @@ $facture = "invoice.php?id=$hotelid&iduser=$user_id&num=$row";
                                 <!--cart-total -->
                                 <div class="cart-total">
                                     <span class="cart-total_item_title">Coût total</span>
-                                    <strong>$690</strong>
+                                    <strong><?php echo $prix ?>dt</strong>
                                 </div>
                                 <!--cart-total end -->
                             </div>

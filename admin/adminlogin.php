@@ -45,21 +45,21 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
 
 	<form action="adminlogin.php" method="POST" class="form">
 		<div class="login-box">
-			<h1>Login</h1>
+			<h1>Connexion</h1>
 
 			<div class="textbox">
 				<i class="fa fa-user" aria-hidden="true"></i>
-				<input type="text" placeholder="Adminname" name="username" value="">
+				<input type="text" placeholder="Nom de l'administrateur" name="username" value="">
 
 			</div>
 
 			<div class="textbox">
 				<i class="fa fa-lock" aria-hidden="true"></i>
-				<input type="password" placeholder="Password" name="pwd" value="">
+				<input type="password" placeholder="Mot de passe" name="pwd" value="">
 
 			</div>
 
-			<input class="button" type="submit" name="login" value="Sign In">
+			<input class="button" type="submit" name="login" value="S'identifier">
 
 		</div>
 	</form>

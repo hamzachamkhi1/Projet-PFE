@@ -636,11 +636,11 @@
                                 <div class="profile-edit-container">
                                     <div class="custom-form">
                                         <label>Facebook <i class="fab fa-facebook"></i></label>
-                                        <input type="text" name="facebook" placeholder="https://www.facebook.com/" value="" />
+                                        <input type="text" name="facebook" placeholder="facebook" value="" />
                                         <label>Twitter<i class="fab fa-twitter"></i> </label>
-                                        <input type="text" name="twitter" placeholder="https://twitter.com/" value="" />
+                                        <input type="text" name="twitter" placeholder="twitter" value="" />
                                         <label> Instagram <i class="fab fa-instagram"></i> </label>
-                                        <input type="text" name="instagram" placeholder="https://www.instagram.com/" value="" />
+                                        <input type="text" name="instagram" placeholder="www.instagram" value="" />
                                         <button class="btn    color2-bg  float-btn" name="submit" type="submit">Envoyer la liste<i class="fas fa-paper-plane"></i></button>
                                     </div>
                                 </div>

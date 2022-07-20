@@ -6,7 +6,7 @@ if (session_status() != 2)
 require "login.php";
 
 if (!isset($_SESSION['Status']) || $_SESSION['Status'] == "Disconnected") {
-    header("Location: http://localhost/Projet-Hamza/index.php");
+    header("Location:index.php");
     die();
 }
 $username = $_SESSION['username'];
@@ -19,8 +19,8 @@ $nbadulte = $_SESSION['nbadulte'];
 $date = $_SESSION['main-input-search'];
 $date1 = new DateTime($date[0]);
 $date2 = new DateTime($date[1]);
-$hotelid = $_GET["id"];
-$_SESSION['hotelid'] = $hotelid;
+$hotelid=$_SESSION['idho'];
+$prix=$_SESSION['prix'];
 $numberOfNights = $date2->diff($date1)->format("%a");
 $sql = "SELECT * FROM hotel WHERE id = $hotelid";
 $result = $conn->query($sql);
@@ -140,7 +140,7 @@ $datenow = date('Y/m/d');
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="images/logo2.png" style="width:150px; height:auto" alt="">
+                                <img src="images/logo.png" style="width:150px; height:auto" alt="">
                             </td>
                             <td>
                                 facture#: 25<br>
@@ -156,11 +156,11 @@ $datenow = date('Y/m/d');
                     <table>
                         <tr>
                             <td>
-                                Easybook , Inc.<br>
-                                USA 27TH Brooklyn NY<br>
-                                <a href="#" style="color:#666; text-decoration:none">JessieManrty@domain.com</a>
+                                ChamkhiBooking , Inc.<br>
+                                LA MEDINA HAMMAMET<br>
+                                <a href="#" style="color:#666; text-decoration:none">hamza.chamkhi@etudiant-isi.utm.tn</a>
                                 <br>
-                                <a href="#" style="color:#666; text-decoration:none">+4(333)123456</a>
+                                <a href="#" style="color:#666; text-decoration:none">+(216)54416265</a>
                             </td>
                             <td>
                                 <?php echo $data1['name'] ?> <?php echo $data1['firstname'] ?><br>
@@ -226,7 +226,7 @@ $datenow = date('Y/m/d');
             <tr class="total">
                 <td></td>
                 <td style="padding-top:50px;">
-                    Total: $690.00
+                    Total: <?php echo $prix;?>dt
                 </td>
             </tr>
         </table>

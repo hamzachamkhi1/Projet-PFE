@@ -26,7 +26,8 @@ require "login.php" ?>
 <body>
     <?php
     require_once 'connection.php';
-    $hotelid = $_GET["id"];
+    $_SESSION['idho']=$_GET["id"];
+    $hotelid = $_SESSION['idho'];
     $noOfRooms = $_SESSION['rooms'];
     $date = $_SESSION['main-input-search'];
     $date1 = new DateTime($date[0]);
@@ -585,7 +586,7 @@ require "login.php" ?>
                                                                             <script>
                                                                                 var select = document.getElementById('supp_red_' + <?php echo $i; ?>);
                                                                                 var valueop = select.options[select.selectedIndex].value;
-                                                                                document.getElementById('opp' + <?php echo $i; ?>).value = valueopp;
+                                                                                document.getElementById('opp' + <?php echo $i; ?>).value = valueop;
                                                                             </script>
                                                                             <script type="text/javascript">
                                                                                 function getpcheckbox(selectObject) {
@@ -641,33 +642,7 @@ require "login.php" ?>
                                                                 <td class="TotalSejour">
                                                                     <div class="text-total-hotel" name="total">Total Séjour</div><span class="price" id="total"><sup>DT</sup></span>
                                                                 </td>
-                                                                <script>
-                                                                    if (document.getElementById('prixtotal_1') == null && document.getElementById('prixtotal_2') == null) {
-                                                                        var prix1 = document.getElementById("prixtotal_0").value;
 
-
-                                                                        var prix = parseFloat(prix1);
-                                                                        console.log(prix)
-                                                                        document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-
-
-                                                                    }
-
-                                                                    if (document.getElementById('prixtotal_1') != null && document.getElementById('prixtotal_2') != null) {
-                                                                        var prix1 = document.getElementById("prixtotal_0").value;
-
-                                                                        var prix2 = document.getElementById("prixtotal_1").value;
-                                                                        var prix3 = document.getElementById("prixtotal_2").value;
-                                                                        var prix = parseFloat(prix1) + parseFloat(prix2) + parseFloat(prix3);
-                                                                    }
-                                                                    if (document.getElementById('prixtotal_2') == null) {
-                                                                        var prix1 = document.getElementById("prixtotal_0").value;
-
-                                                                        var prix2 = document.getElementById("prixtotal_1").value;
-                                                                        var prix = parseFloat(prix1) + parseFloat(prix2);
-                                                                    }
-                                                                    document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-                                                                </script>
                                                             </tr>
                                                         </tfoot>
                                                     </table>
@@ -677,7 +652,7 @@ require "login.php" ?>
                                                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         </button>
                                                         <input type="hidden" name="id" value=<?php echo '"' . $_GET["id"] . '"' ?> />
-                                                        <div class="text-total-hotel" name="total" hidden></div><span class="price" id="total2"></span>
+                                                        <input type="hidden" name="total" value="" id="totalinput">
                                                     </form>
                                                 </div>
                                             </div>
@@ -741,25 +716,6 @@ require "login.php" ?>
                                             </div>
                                         </div>
                                         <!-- reviews-score-wrap end -->
-                                        <div class="reviews-comments-wrap">
-                                            <!-- reviews-comments-item -->
-                                            <div class="reviews-comments-item">
-                                                <div class="review-comments-avatar">
-                                                    <img src="images/avatar/2.jpg" alt="">
-                                                </div>
-                                                <div class="reviews-comments-item-text">
-                                                    <h4><a href="#">Liza Rose</a></h4>
-                                                    <div class="review-score-user">
-                                                        <span>4.4</span>
-                                                        <strong>Good</strong>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <p>" Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. "</p>
-                                                    <div class="reviews-comments-item-date"><span><i class="far fa-calendar-check"></i>12 April 2018</span><a href="#"><i class="fal fa-reply"></i> Reply</a></div>
-                                                </div>
-                                            </div>
-                                            <!--reviews-comments-item end-->
-                                        </div>
                                     </div>
                                     <!-- list-single-main-item end -->
                                     <!-- list-single-main-item -->
@@ -877,49 +833,6 @@ require "login.php" ?>
                                         <div id="weather-widget" class="gradient-bg ideaboxWeather" data-city="<?php echo $datawea['Nom'] ?>"></div>
                                     </div>
                                     <!--box-widget-item end -->
-                                    <!--box-widget-item -->
-                                    <div class="box-widget-item fl-wrap">
-                                        <div class="box-widget">
-                                            <div class="box-widget-content">
-                                                <div class="box-widget-item-header">
-                                                    <h3>Similar Listings</h3>
-                                                </div>
-                                                <div class="widget-posts fl-wrap">
-                                                    <ul>
-                                                        <li class="clearfix">
-                                                            <a href="#" class="widget-posts-img"><img src="images/gal/3.jpg" class="respimg" alt=""></a>
-                                                            <div class="widget-posts-descr">
-                                                                <a href="#" title="">Park Central</a>
-                                                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                                                <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 40 JOURNAL SQUARE PLAZA, NJ, US</a></div>
-                                                                <span class="rooms-price">$80 <strong> / Awg</strong></span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="clearfix">
-                                                            <a href="#" class="widget-posts-img"><img src="images/gal/1.jpg" class="respimg" alt=""></a>
-                                                            <div class="widget-posts-descr">
-                                                                <a href="#" title="">Holiday Home</a>
-                                                                <div class="listing-rating card-popup-rainingvis" data-starrating2="3"></div>
-                                                                <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 75 PRINCE ST, NY, USA</a></div>
-                                                                <span class="rooms-price">$50 <strong> / Awg</strong></span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="clearfix">
-                                                            <a href="#" class="widget-posts-img"><img src="images/gal/2.jpg" class="respimg" alt=""></a>
-                                                            <div class="widget-posts-descr">
-                                                                <a href="#" title="">Moonlight Hotel</a>
-                                                                <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
-                                                                <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 70 BRIGHT ST NEW YORK, USA</a></div>
-                                                                <span class="rooms-price">$105 <strong> / Awg</strong></span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <a class="widget-posts-link" href="#">Voir toutes les annonces <i class="fas fa-long-arrow-right"></i> </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--box-widget-item end -->
                                 </div>
                                 <!--box-widget-wrap end -->
                             </div>
@@ -966,7 +879,40 @@ require "login.php" ?>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA844tkNbu9Gk651PRbkdn0AwxAPUXp8wI"></script>
-    <script>
+
+</body>
+
+</html>
+<script>
+    if (document.getElementById('prixtotal_1') == null && document.getElementById('prixtotal_2') == null) {
+        var prix1 = document.getElementById("prixtotal_0").value;
+
+
+        var prix = parseFloat(prix1);
+        console.log(prix)
+        document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
+        document.getElementById("totalinput").value = prix;
+
+    }
+
+    if (document.getElementById('prixtotal_1') != null && document.getElementById('prixtotal_2') != null) {
+        var prix1 = document.getElementById("prixtotal_0").value;
+
+        var prix2 = document.getElementById("prixtotal_1").value;
+        var prix3 = document.getElementById("prixtotal_2").value;
+        var prix = parseFloat(prix1) + parseFloat(prix2) + parseFloat(prix3);
+    }
+    if (document.getElementById('prixtotal_1') != null &&document.getElementById('prixtotal_2') == null) {
+        var prix1 = document.getElementById("prixtotal_0").value;
+
+        var prix2 = document.getElementById("prixtotal_1").value;
+        var prix = parseFloat(prix1) + parseFloat(prix2);
+    }
+    document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
+
+    document.getElementById("totalinput").value = prix;
+</script>
+<script>
         function getpo(selectObject, checkObject) {
             var prix = 0;
             if (selectObject.id == 'logement_0' && checkObject.id == 'supp_red_0') {
@@ -1033,7 +979,7 @@ require "login.php" ?>
                 var prix1 = document.getElementById("prixtotal_0").value;
                 var prix = parseFloat(prix1);
                 document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-
+                document.getElementById("totalinput").value =prix;
             }
 
             if (document.getElementById('prixtotal_1') != null && document.getElementById('prixtotal_2') != null) {
@@ -1050,11 +996,12 @@ require "login.php" ?>
                 var prix = parseFloat(prix1) + parseFloat(prix2);
             }
             document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
-
+            document.getElementById("totalinput").value =prix;
 
         };
     </script>
     <script>
+        
         function majtotal() {
 
             var prix1 = document.getElementById("prixtotal_0").value;
@@ -1072,9 +1019,10 @@ require "login.php" ?>
             if (document.getElementById('prixtotal_1') == null && document.getElementById('prixtotal_2') == null) {
                 var prix = parseFloat(prix1);
             }
-            console.log(prix);
-
+           
+          
             document.getElementById("total").innerHTML = "" + prix + "<sup>DT</sup>";
+            document.getElementById("totalinput").value =prix;
         }
     </script>
     <script>
@@ -1091,6 +1039,3 @@ require "login.php" ?>
         }
         ?>
     </script>
-</body>
-
-</html>

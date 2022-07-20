@@ -16,7 +16,7 @@ print_r($image);
             </div>
             <?php if (isset($_SESSION['Status']) && $_SESSION['Status'] == "Connected") {
                 echo '<form method="POST">'
-                    . '<div class="show-reg-form" id="logout"><button type="submit" name="logout"><span>Se déconnecter</span></button></div>'
+                    . '<div class="show-reg-form" id="logout"><button type="submit" name="logout"    style="background: #18458b ; color: white"><span>Se déconnecter</span></button></div>'
                     . '</form>';
             } else {
                 echo '<div class="show-reg-form modal-open" id="login"><i class="fas fa-sign-in"></i>Sidentifier</div>';
@@ -42,7 +42,6 @@ print_r($image);
                     . '</div>'
                     . '<ul>'
                     . '<li><a href="dashboard-myprofile.php"> Editer le profil</a></li>'
-                    . '<li><a href="dashboard-add-listing.php">Ajouter une annonce</a></li>'
                     . '<li><a href="dashboard-bookings.php"> Réservations </a></li>'
                     . '</ul>'
                     . '</div>';
